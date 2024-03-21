@@ -20,8 +20,5 @@ export interface UserExtendedSchema<P = false> {
 
 export type GetUserPipeline = (arg: CommonUserStaticsArg) => PipelineStage[];
 
-export type GetModel<M> = IsUnion<M> extends true
-  ? UserModel
-  : M extends typeof types.FRONT
-  ? UserModel
-  : AdminModel;
+export type GetModel<M> =
+  IsUnion<M> extends true ? UserModel : M extends typeof types.FRONT ? UserModel : AdminModel;
