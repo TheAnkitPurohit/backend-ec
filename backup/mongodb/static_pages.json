@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "60ec1fef337721fcbdcfca11"
+  },
+  "isActive": true,
+  "title": "About US",
+  "description": "<p>Hello, I am about us</p>",
+  "slug": "about-us",
+  "createdAt": {
+    "$date": "2021-07-12T10:56:47.422Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-12T10:56:47.422Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60ec2013337721fcbdcfca14"
+  },
+  "isActive": true,
+  "title": "Contact US",
+  "description": "<p>Hello, I am contact us</p>",
+  "slug": "contact-us",
+  "createdAt": {
+    "$date": "2021-07-12T10:57:23.743Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-12T10:57:23.743Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "620b60708754ae2acbe34715"
+  },
+  "isActive": true,
+  "title": "Privacy Policy",
+  "description": "<p>Hello, I am privacy policy</p>",
+  "slug": "privacy-policy",
+  "createdAt": {
+    "$date": "2022-02-15T08:12:32.463Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T08:12:32.463Z"
+  }
+}]

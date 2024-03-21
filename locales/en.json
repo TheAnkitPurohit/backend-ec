@@ -1,0 +1,114 @@
+{
+  "EMAIL_MESSAGES": {
+    "WELCOME_SUBJECT": "Welcome to OpenXcell Family",
+    "RESET_PASSWORD_SUBJECT": "Reset your Password",
+    "CHANGE_PASSWORD_SUBJECT": "Your password is changed",
+    "MAIL_SENT": "Mail Sent",
+    "MAIL_INVALID": "Invalid",
+    "MAIL_SUCCESS": "Success",
+    "MAIL_FAILED": "Failed",
+    "NO_EMAIL_TEMPLATE_FOUND": "No Email Template Found",
+    "MAIL_SENT_MESSAGE": "Mail Sent Successfully",
+    "VERIFICATION_MAIL_SENT_MESSAGE": "Verification Mail Sent Successfully"
+  },
+  "API_MESSAGES": {
+    "REGISTER_MESSAGE": "Registered Successfully",
+    "LOGIN_MESSAGE": "Login Successfully",
+    "FORGOT_PASSWORD_MESSAGE": "New password sent successfully",
+    "RESET_PASSWORD_MESSAGE": "Reset Password Successfully",
+    "ACCOUNT_VERIFIED_MESSAGE": "Account Verified Successfully",
+    "CHANGE_PASSWORD_MESSAGE": "Password Changed Successfully",
+    "LOGOUT_MESSAGE": "Logout Successfully"
+  },
+  "MESSAGES": {
+    "INVALID_DATA": "Provided data is invalid",
+    "NO_DATA_FOUND": "No Data Found",
+    "ID_NOT_FOUND": "No data found with this id",
+    "INCORRECT_LOGIN": "Incorrect email or password",
+    "USER_ALREADY_EXIST": "This user account is already exist",
+    "ALREADY_VERIFIED": "This user account is already verified",
+    "NOT_VERIFIED": "This user account is not verified",
+    "NOT_ACTIVATED": "This user account is not activated",
+    "PERMISSION_ALREADY_EXIST": "Name already exist",
+    "PASSWORD_WRONG": "Your current password is wrong",
+    "SAME_PASSWORD": "Your password is same as before, please change it to new",
+    "INVALID_ROLE": "Please add valid role",
+    "SITE_HANDSHAKE": "Hi, I am a Landing Page",
+    "API_HANDSHAKE": "Hi, I am an API Home Page",
+    "FRONT_HANDSHAKE": "Hi, I am a Frontend API Home Page",
+    "CMS_HANDSHAKE": "Hi, I am a CMS API Home Page",
+    "ROLE_DELETE_NOT_ALLOWED": "One of the user has the role, so you can not delete it",
+    "PROVIDE_VALID_OBJECT_ID": "Please provide valid ObjectId",
+    "UPLOAD_FILE": "Please upload file",
+    "INVALID_FILE": "Please upload valid file",
+    "REFERRAL_USER_ALREADY_EXIST": "This referral user account is already exist",
+    "NOT_ALLOWED_TO_GO_BACKWARD": "The user stage can't go backwards"
+  },
+  "ERRORS": {
+    "UNKNOWN_ERROR": "Something went wrong, please try again later!",
+    "TECHNICAL_ERROR": "It’s not you. It’s us. Give it another try, please!",
+    "EMAIL_ERROR": "There was an error sending the email. Try again later!",
+    "S3_ERROR": "There was an error in connecting with s3. Try again later!",
+    "FORBIDDEN_ERROR": "You do not have permission to perform this action",
+    "UNAUTHORIZED_ERROR": "You are not logged in! please log in to get access",
+    "TOKEN_NOT_EXIST_ERROR": "The user belonging to this token does no longer exist",
+    "INVALID_TOKEN_ERROR": "Invalid token. Please log in again!",
+    "TOKEN_EXPIRED_ERROR": "Your token has expired. Please log in again!",
+    "EXPIRED_TOKEN_ERROR": "Token is invalid or has expired",
+    "PASSWORD_CHANGED_ERROR": "User recently changed password! Please log in again",
+    "RATE_LIMIT_ERROR": "Too many requests from this IP, please try again in an hour!",
+    "MAINTENANCE_ERROR": "This site is currently unable to handle the HTTP request due to a maintenance of the server. Please try after some time",
+    "JSON_PARSE_ERROR": "Invalid JSON"
+  },
+  "FUNCTIONS": {
+    "ROUTE_NOT_FOUND": "Cant find {{- url}} on this server"
+  },
+  "DATA": {
+    "CREATED": "Data created successfully.",
+    "RETRIEVED": "Data retrieved successfully.",
+    "UPDATED": "Data updated successfully.",
+    "DELETED": "Data deleted successfully."
+  },
+  "EMAIL_TEMPLATE": {
+    "CREATED": "Email template created successfully.",
+    "RETRIEVED": "Email templates retrieved successfully.",
+    "UPDATED": "Email template updated successfully.",
+    "DELETED": "Email template deleted successfully."
+  },
+  "PERMISSION": {
+    "CREATED": "Permission created successfully.",
+    "RETRIEVED": "Permissions retrieved successfully.",
+    "UPDATED": "Permission updated successfully.",
+    "DELETED": "Permission deleted successfully."
+  },
+  "PROFILE": {
+    "CREATED": "Profile created successfully.",
+    "RETRIEVED": "Profiles retrieved successfully.",
+    "UPDATED": "Profile updated successfully.",
+    "DELETED": "Profile deleted successfully."
+  },
+  "ADMIN_PROFILE": {
+    "CREATED": "Admin profile created successfully.",
+    "RETRIEVED": "Admin profiles retrieved successfully.",
+    "UPDATED": "Admin profile updated successfully.",
+    "DELETED": "Admin profile deleted successfully."
+  },
+  "ROLE": {
+    "CREATED": "Role created successfully.",
+    "RETRIEVED": "Roles retrieved successfully.",
+    "UPDATED": "Role updated successfully.",
+    "DELETED": "Role deleted successfully."
+  },
+  "STATIC_PAGE": {
+    "CREATED": "Static Page created successfully.",
+    "RETRIEVED": "Static Pages retrieved successfully.",
+    "UPDATED": "Static Page updated successfully.",
+    "DELETED": "Static Page deleted successfully."
+  },
+  "USER": {
+    "CREATED": "User created successfully.",
+    "RETRIEVED": "Users retrieved successfully.",
+    "UPDATED": "User updated successfully.",
+    "DELETED": "User deleted successfully."
+  }
+}

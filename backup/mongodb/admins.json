@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "60eed4778700daad569ebb56"
+  },
+  "role": {
+    "$oid": "60ed9ee67284457536fa3e47"
+  },
+  "isActive": true,
+  "email": "nisharg.shah@openxcell.com",
+  "password": "$2a$12$dDtcrbxjixMmxoK9A5Xy3eT7fa5C8GldXSCBwASQvI5SyAPSGQmma",
+  "firstName": "Nisharg",
+  "lastName": "Shah",
+  "createdAt": {
+    "$date": "2021-07-14T12:11:35.482Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T11:35:24.592Z"
+  },
+  "avatar": null,
+  "fcm": null,
+  "countryCode": "91",
+  "countryIsoCode": "IN",
+  "mobile": "1234567890",
+  "isDeleted": false,
+  "emailLog": []
+}]

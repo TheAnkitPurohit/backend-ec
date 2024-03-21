@@ -1,0 +1,146 @@
+[{
+  "_id": {
+    "$oid": "60ed9ee67284457536fa3e47"
+  },
+  "permissions": [
+    {
+      "$oid": "60ed8c546922f932695302c8"
+    },
+    {
+      "$oid": "60ed8dc3701994360eb04c16"
+    },
+    {
+      "$oid": "60ed8dd0701994360eb04c1a"
+    },
+    {
+      "$oid": "60ed8de7701994360eb04c1e"
+    },
+    {
+      "$oid": "60ed8df3701994360eb04c24"
+    },
+    {
+      "$oid": "60ed9b89b114be63eea13474"
+    },
+    {
+      "$oid": "60eedae898fd54b4eb8b2cc3"
+    },
+    {
+      "$oid": "60eedaed98fd54b4eb8b2cc8"
+    },
+    {
+      "$oid": "60eedaf198fd54b4eb8b2ccd"
+    },
+    {
+      "$oid": "60eedaf598fd54b4eb8b2cd2"
+    },
+    {
+      "$oid": "60eedafe98fd54b4eb8b2cda"
+    },
+    {
+      "$oid": "60eedd6398fd54b4eb8b2cfe"
+    },
+    {
+      "$oid": "60eedd7698fd54b4eb8b2d03"
+    },
+    {
+      "$oid": "60eedd8c98fd54b4eb8b2d08"
+    },
+    {
+      "$oid": "60eeddb398fd54b4eb8b2d0d"
+    },
+    {
+      "$oid": "60eeddd098fd54b4eb8b2d12"
+    },
+    {
+      "$oid": "60eedde398fd54b4eb8b2d17"
+    },
+    {
+      "$oid": "60eede0398fd54b4eb8b2d1c"
+    },
+    {
+      "$oid": "60eede2898fd54b4eb8b2d21"
+    },
+    {
+      "$oid": "60eede3a98fd54b4eb8b2d26"
+    },
+    {
+      "$oid": "60eede4198fd54b4eb8b2d2b"
+    },
+    {
+      "$oid": "60eede5398fd54b4eb8b2d30"
+    },
+    {
+      "$oid": "60eede5898fd54b4eb8b2d35"
+    },
+    {
+      "$oid": "60eedec598fd54b4eb8b2d3a"
+    },
+    {
+      "$oid": "60eeded798fd54b4eb8b2d3f"
+    },
+    {
+      "$oid": "60eedee198fd54b4eb8b2d44"
+    },
+    {
+      "$oid": "60eedef098fd54b4eb8b2d49"
+    },
+    {
+      "$oid": "60eedef698fd54b4eb8b2d4e"
+    },
+    {
+      "$oid": "620b894914fc8636b8aba8ea"
+    },
+    {
+      "$oid": "620b8ed2daf6e44d8a570d20"
+    },
+    {
+      "$oid": "620b907cce498762c59e1f87"
+    },
+    {
+      "$oid": "64a1d8f9a7568a7afebb22a5"
+    }
+  ],
+  "isActive": true,
+  "name": "Super Admin",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T14:10:46.963Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T11:32:09.192Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eed185113187a8228ee52f"
+  },
+  "permissions": [
+    {
+      "$oid": "60eda1d383efaa7cb5085e20"
+    },
+    {
+      "$oid": "60eed5668ec073b1da4e0b32"
+    },
+    {
+      "$oid": "60eed58c8ec073b1da4e0b37"
+    },
+    {
+      "$oid": "60eed59f8ec073b1da4e0b3c"
+    },
+    {
+      "$oid": "60eed5af8ec073b1da4e0b41"
+    },
+    {
+      "$oid": "620b907ece498762c59e1f8c"
+    }
+  ],
+  "isActive": true,
+  "name": "Frontend Master",
+  "type": 2,
+  "createdAt": {
+    "$date": "2021-07-13T14:10:46.963Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:19:40.163Z"
+  }
+}]

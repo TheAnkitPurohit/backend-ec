@@ -1,0 +1,19 @@
+FROM node:18-alpine as build
+WORKDIR /app
+COPY package.json .
+RUN yarn install
+COPY . .
+
+FROM node:18-alpine as final
+ARG APP_NAME=app
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+ENV APP_NAME=${APP_NAME}
+ENV ENV_NAME=common
+RUN npm install -g pm2
+RUN pm2 install typescript
+WORKDIR /app
+COPY --from=build /app/node_modules /app/node_modules
+COPY . .
+RUN ls -la
+CMD pm2-runtime start ecosystem.config.js

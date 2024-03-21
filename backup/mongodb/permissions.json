@@ -1,0 +1,496 @@
+[{
+  "_id": {
+    "$oid": "60ed8dc3701994360eb04c16"
+  },
+  "isActive": true,
+  "displayName": "Create Email Template",
+  "name": "/email-template/create",
+  "module": "email-template",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T12:57:39.060Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T12:57:39.060Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60ed8dd0701994360eb04c1a"
+  },
+  "isActive": true,
+  "displayName": "Get All Email Templates",
+  "name": "/email-template/lists",
+  "module": "email-template",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T12:57:52.028Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T12:57:52.028Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60ed8de7701994360eb04c1e"
+  },
+  "isActive": true,
+  "displayName": "Update Email Template",
+  "name": "/email-template/update/:id",
+  "module": "email-template",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T12:58:15.688Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T12:58:15.688Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60ed8df3701994360eb04c24"
+  },
+  "isActive": true,
+  "displayName": "Delete Email Template",
+  "name": "/email-template/delete/:id",
+  "module": "email-template",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T12:58:27.579Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T12:58:27.579Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60ed9b89b114be63eea13474"
+  },
+  "isActive": true,
+  "displayName": "Get Email Template",
+  "name": "/email-template/lists/:id",
+  "module": "email-template",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-13T13:56:25.736Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T13:56:25.736Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eed5668ec073b1da4e0b32"
+  },
+  "isActive": true,
+  "displayName": "Update Profile",
+  "name": "/profile/update",
+  "module": "user",
+  "type": 2,
+  "createdAt": {
+    "$date": "2021-07-14T12:15:34.773Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:15:34.773Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eed59f8ec073b1da4e0b3c"
+  },
+  "isActive": true,
+  "displayName": "Change Password",
+  "name": "/profile/change-password",
+  "module": "user",
+  "type": 2,
+  "createdAt": {
+    "$date": "2021-07-14T12:16:31.688Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:16:31.688Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eed5af8ec073b1da4e0b41"
+  },
+  "isActive": true,
+  "displayName": "Logout",
+  "name": "/profile/logout",
+  "module": "user",
+  "type": 2,
+  "createdAt": {
+    "$date": "2021-07-14T12:16:47.770Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:16:47.770Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedaed98fd54b4eb8b2cc8"
+  },
+  "isActive": true,
+  "displayName": "Update Profile",
+  "name": "/profile/update",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:39:09.125Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:39:09.125Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedaf598fd54b4eb8b2cd2"
+  },
+  "isActive": true,
+  "displayName": "Change Password",
+  "name": "/profile/change-password",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:39:17.336Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:39:17.336Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedd6398fd54b4eb8b2cfe"
+  },
+  "isActive": true,
+  "displayName": "Get User",
+  "name": "/user/lists/:id",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:49:39.631Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:49:39.631Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedd7698fd54b4eb8b2d03"
+  },
+  "isActive": true,
+  "displayName": "Get All Users",
+  "name": "/user/lists",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:49:58.123Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:49:58.123Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedd8c98fd54b4eb8b2d08"
+  },
+  "isActive": true,
+  "displayName": "Update User",
+  "name": "/user/update/:id",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:50:20.004Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:50:20.004Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eeddb398fd54b4eb8b2d0d"
+  },
+  "isActive": true,
+  "displayName": "Delete User",
+  "name": "/user/delete/:id",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:50:59.599Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:50:59.599Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eeddd098fd54b4eb8b2d12"
+  },
+  "isActive": true,
+  "displayName": "Create Permission",
+  "name": "/permissions/create",
+  "module": "permission",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:51:28.066Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:51:28.066Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedde398fd54b4eb8b2d17"
+  },
+  "isActive": true,
+  "displayName": "Get All Permissions",
+  "name": "/permissions/lists",
+  "module": "permission",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:51:47.941Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:51:47.941Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede0398fd54b4eb8b2d1c"
+  },
+  "isActive": true,
+  "displayName": "Delete Permission",
+  "name": "/permissions/delete/:id",
+  "module": "permission",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:52:19.580Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:52:19.580Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede2898fd54b4eb8b2d21"
+  },
+  "isActive": true,
+  "displayName": "Create Role",
+  "name": "/roles/create",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:52:56.729Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:52:56.729Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede3a98fd54b4eb8b2d26"
+  },
+  "isActive": true,
+  "displayName": "Get Role",
+  "name": "/roles/lists/:id",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:53:14.102Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:53:14.102Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede4198fd54b4eb8b2d2b"
+  },
+  "isActive": true,
+  "displayName": "Get All Roles",
+  "name": "/roles/lists",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:53:21.938Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:53:21.938Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede5398fd54b4eb8b2d30"
+  },
+  "isActive": true,
+  "displayName": "Update Role",
+  "name": "/roles/update/:id",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:53:39.743Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:53:39.743Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eede5898fd54b4eb8b2d35"
+  },
+  "isActive": true,
+  "displayName": "Delete Role",
+  "name": "/roles/delete/:id",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:53:44.463Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:53:44.463Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedec598fd54b4eb8b2d3a"
+  },
+  "isActive": true,
+  "displayName": "Create Static Page",
+  "name": "/static-page/create",
+  "module": "static-page",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:55:33.141Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:55:33.141Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eeded798fd54b4eb8b2d3f"
+  },
+  "isActive": true,
+  "displayName": "Get Static Page",
+  "name": "/static-page/lists/:id",
+  "module": "static-page",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:55:51.025Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:55:51.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedee198fd54b4eb8b2d44"
+  },
+  "isActive": true,
+  "displayName": "Get All Static Pages",
+  "name": "/static-page/lists",
+  "module": "static-page",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:56:01.655Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:56:01.655Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedef098fd54b4eb8b2d49"
+  },
+  "isActive": true,
+  "displayName": "Update Static Page",
+  "name": "/static-page/update/:id",
+  "module": "static-page",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:56:16.465Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:56:16.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "60eedef698fd54b4eb8b2d4e"
+  },
+  "isActive": true,
+  "displayName": "Delete Static Page",
+  "name": "/static-page/delete/:id",
+  "module": "static-page",
+  "type": 1,
+  "createdAt": {
+    "$date": "2021-07-14T12:56:22.087Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-14T12:56:22.087Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "620b894914fc8636b8aba8ea"
+  },
+  "isActive": true,
+  "displayName": "Update User Status",
+  "name": "/user/update/status/:id",
+  "module": "user",
+  "type": 1,
+  "createdAt": {
+    "$date": "2022-02-15T11:06:49.968Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T11:06:49.968Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "620b8ed2daf6e44d8a570d20"
+  },
+  "isActive": true,
+  "displayName": "Update Role Status",
+  "name": "/roles/update/status/:id",
+  "module": "role",
+  "type": 1,
+  "createdAt": {
+    "$date": "2022-02-15T11:30:26.759Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T11:30:26.759Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "620b907ece498762c59e1f8c"
+  },
+  "isActive": true,
+  "displayName": "Delete Profile",
+  "name": "/profile/delete",
+  "module": "user",
+  "type": 2,
+  "createdAt": {
+    "$date": "2022-02-15T11:37:34.591Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-15T11:37:34.591Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64a1d8f9a7568a7afebb22a5"
+  },
+  "name": "/permissions/update/status/:id",
+  "displayName": "Update Permission Status",
+  "module": "permission",
+  "type": 1,
+  "isActive": true,
+  "createdAt": {
+    "$date": "2023-07-02T20:07:21.430Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-02T20:13:07.270Z"
+  }
+}]

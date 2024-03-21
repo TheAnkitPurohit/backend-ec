@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "60eed2f647d056aa03e6b28d"
+  },
+  "username": "nishargshah",
+  "city": null,
+  "state": null,
+  "country": null,
+  "zipcode": null,
+  "role": {
+    "$oid": "60eed185113187a8228ee52f"
+  },
+  "isVerified": true,
+  "isActive": true,
+  "deletedAt": null,
+  "deletedBy": null,
+  "email": "nishargshah3101@gmail.com",
+  "password": "$2a$12$dDtcrbxjixMmxoK9A5Xy3eT7fa5C8GldXSCBwASQvI5SyAPSGQmma",
+  "firstName": "Nisharg",
+  "lastName": "Shah",
+  "createdAt": {
+    "$date": "2021-07-14T12:05:10.577Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-06T05:37:44.626Z"
+  },
+  "avatar": null,
+  "countryCode": "91",
+  "countryIsoCode": "IN",
+  "mobile": "1234567890",
+  "address": null,
+  "isDeleted": false,
+  "fcm": null,
+  "emailLog": []
+}]

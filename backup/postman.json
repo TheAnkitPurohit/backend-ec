@@ -1,0 +1,1653 @@
+{
+	"info": {
+		"_postman_id": "5d91f927-25b9-43f4-8480-ec58810075ae",
+		"name": "MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7770403"
+	},
+	"item": [
+		{
+			"name": "Front",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Signup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"FRONT_TOKEN\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"nisharg\",\n    \"email\": \"nishargshah3106@gmail.com\",\n    \"password\": \"nisharg\",\n    \"firstName\": \"Nisharg\",\n    \"lastName\": \"Shah\",\n    \"avatar\": \"hello.jpg\",\n    \"role\": \"60eed185113187a8228ee52f\",\n    \"mobile\": \"1234567890\",\n    \"countryCode\": \"91\",\n    \"countryIsoCode\": \"IN\"\n}"
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/signup",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"FRONT_TOKEN\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "accept-language",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"nishrgshah3105@gmail.com\",\n    \"password\": \"nisharg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/login",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"nishargshah3101@gmail.com\"\n}\t",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/forgot-password",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"nisharg2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/reset-password/cdde8f176386d509e3d341234083d99a:3d00e6691760bc58a5883bfcaf24e6e0f51e8a0a5b3642c19a8a62b76c7b6426d6de5c2b4e839d68e97d85b7e0b3998fc997a236b0cec760e18815ae08b79e44c208a996f1e4ddafe1eed86b776df6e55a46a7ce4fc14d4041f3984875b98b37b10e7c2175e13b669af5d60363e45838",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"reset-password",
+										"cdde8f176386d509e3d341234083d99a:3d00e6691760bc58a5883bfcaf24e6e0f51e8a0a5b3642c19a8a62b76c7b6426d6de5c2b4e839d68e97d85b7e0b3998fc997a236b0cec760e18815ae08b79e44c208a996f1e4ddafe1eed86b776df6e55a46a7ce4fc14d4041f3984875b98b37b10e7c2175e13b669af5d60363e45838"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resend Verification Link",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"nishargshah3102@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/resend-verification-link",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"resend-verification-link"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{FRONT_URL}}/auth/verify-user/1d6f55845a60416164e9f53e280f37db:365b7fa52e5ee85258e32709a032ca70ced6e1e23d267197fae1f55d6526f682530f5a78da4854885a4e135086dbc490d5b1cfafa6d986bce058ae6586305aaa7fffd992b1c781e0c7cd31bf897536b5c23d064c43c58180e8fdcd4a2e1810bb17b20ba946a59c112f0eb22c03a76214",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"auth",
+										"verify-user",
+										"1d6f55845a60416164e9f53e280f37db:365b7fa52e5ee85258e32709a032ca70ced6e1e23d267197fae1f55d6526f682530f5a78da4854885a4e135086dbc490d5b1cfafa6d986bce058ae6586305aaa7fffd992b1c781e0c7cd31bf897536b5c23d064c43c58180e8fdcd4a2e1810bb17b20ba946a59c112f0eb22c03a76214"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{FRONT_URL}}/profile/me",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"profile",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"nisharg\",\n    \"firstName\": \"Nisharg\",\n    \"lastName\": \"Shah\",\n    \"avatar\": \"hello-updated.jpg\",\n    \"mobile\": \"1234567890\",\n    \"countryCode\": \"91\",\n    \"countryIsoCode\": \"IN\"\n}"
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/profile/update",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currentPassword\": \"nisharg1\",\n    \"newPassword\": \"nisharg1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/profile/change-password",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"profile",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/profile/delete",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"profile",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"FRONT_TOKEN\", \"\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FRONT_URL}}/profile/logout",
+									"host": [
+										"{{FRONT_URL}}"
+									],
+									"path": [
+										"profile",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "API Handshake",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FRONT_URL}}",
+							"host": [
+								"{{FRONT_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{FRONT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CMS",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"CMS_TOKEN\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"nisharg.shah@openxcellinc.com\",\n    \"password\": \"nisharg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/auth/login",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"nisharg.shah@openxcellinc.com\"\n}\t",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/auth/forgot-password",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"auth",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"nisharg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/auth/reset-password/35f69a0e03c944014b955273a272f514:aaa998ed86eab0ee8730ed1dd5e4543657e9bb9ae9bda73f2b47ea3be30ce81506982939fe304e8bfd0963bbb36c274866320d17473c357c625c5ac8c925b0a2994992283918462578e767693fc4e08e1e21b4d5a096464dccc7aafd47f11a26acc9504aa6593bbcaff69e05e08b16b0",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"auth",
+										"reset-password",
+										"35f69a0e03c944014b955273a272f514:aaa998ed86eab0ee8730ed1dd5e4543657e9bb9ae9bda73f2b47ea3be30ce81506982939fe304e8bfd0963bbb36c274866320d17473c357c625c5ac8c925b0a2994992283918462578e767693fc4e08e1e21b4d5a096464dccc7aafd47f11a26acc9504aa6593bbcaff69e05e08b16b0"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/profile/me",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"profile",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Nisharg\",\n    \"lastName\": \"Shah\",\n    \"avatar\": \"hello-updated.jpg\",\n    \"mobile\": \"1234567890\",\n    \"countryCode\": \"91\",\n    \"countryIsoCode\": \"IN\"\n}"
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/profile/update",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"currentPassword\": \"nisharg2\",\n    \"newPassword\": \"nisharg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/profile/change-password",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"profile",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"CMS_TOKEN\", \"\");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/profile/logout",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"profile",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/user/lists/60eed2f647d056aa03e6b28d",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"user",
+										"lists",
+										"60eed2f647d056aa03e6b28d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Users",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"search\": \"\",\n    \"fields\": \"email, firstName, lastName\",\n    \"sort\": 1,\n    \"sortBy\": \"email\",\n    \"pagination\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/user/lists?page=1&limit=10",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"user",
+										"lists"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/user/update/status/64b2e3864f93f93323efa8d3",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"user",
+										"update",
+										"status",
+										"64b2e3864f93f93323efa8d3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"nisharg\",\n    \"firstName\": \"Nisharg\",\n    \"lastName\": \"Shah\",\n    \"avatar\": \"hello-updated1.jpg\",\n    \"mobile\": \"1234567890\",\n    \"countryCode\": \"91\",\n    \"countryIsoCode\": \"IN\"\n}"
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/user/update/64ce3f9e02aef320d360456e",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"user",
+										"update",
+										"64ce3f9e02aef320d360456e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/user/delete/64b2e3864f93f93323efa8d3",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"user",
+										"delete",
+										"64b2e3864f93f93323efa8d3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "Create Permission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"displayName\": \"Get Profile\",\n    \"name\": \"/profile/get\",\n    \"module\": \"user\",\n    \"type\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/permissions/create",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"permissions",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Permissions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": 1,\n    \"pagination\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/permissions/lists?page=1&limit=10",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"permissions",
+										"lists"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Permission Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/permissions/update/status/64a1d8f9a7568a7afebb22a5",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"permissions",
+										"update",
+										"status",
+										"64a1d8f9a7568a7afebb22a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Permission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/permissions/delete/64a1d6d21ace8f5f2c2278a3",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"permissions",
+										"delete",
+										"64a1d6d21ace8f5f2c2278a3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "Create Role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Frontend Master 1\",\n    \"permissions\": [\"60eda1d383efaa7cb5085e20\", \"60eed5668ec073b1da4e0b32\", \"60eed5af8ec073b1da4e0b41\"],\n    \"type\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/roles/create",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/roles/lists/64a1d2e2cee223ceeba3347e",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"lists",
+										"64a1d2e2cee223ceeba3347e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Roles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/roles/lists?page=1&limit=10",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"lists"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Role Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/roles/update/status/64a1d2e2cee223ceeba3347e",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"update",
+										"status",
+										"64a1d2e2cee223ceeba3347e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Role",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Frontend Master 2\",\n    \"permissions\": [\n        \"60eedec598fd54b4eb8b2d3a\",\n        \"60eeded798fd54b4eb8b2d3f\",\n        \"60eedee198fd54b4eb8b2d44\",\n        \"60eedef098fd54b4eb8b2d49\",\n        \"60eedef698fd54b4eb8b2d4e\"\n    ],\n    \"type\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/roles/update/64a1d2e2cee223ceeba3347e",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"update",
+										"64a1d2e2cee223ceeba3347e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Role",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/roles/delete/64a1d2e2cee223ceeba3347e",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"roles",
+										"delete",
+										"64a1d2e2cee223ceeba3347e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "Get Dashboard Lists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/dashboard/lists",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"dashboard",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Email Templates",
+					"item": [
+						{
+							"name": "Create Email Template",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Reset Password\",\n    \"description\": \"hello {{username}}, your reset password url is {{url}}. Thanks {{productName}}\",\n    \"slug\": \"reset-password2\",\n    \"values\": [\"username\", \"productName\", \"url\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/email-template/create",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"email-template",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Email Template",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/email-template/lists/64a1c871793cae4e39c0dd48",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"email-template",
+										"lists",
+										"64a1c871793cae4e39c0dd48"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Email Templates",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/email-template/lists",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"email-template",
+										"lists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Email Template",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Reset Password1\",\n    \"description\": \"hello {{username}}, your verification url is {{url}}. Thanks {{productName}}\",\n    \"values\": [\"username\", \"productName\", \"url\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/email-template/update/64b3db153a3e3043e7853dc3",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"email-template",
+										"update",
+										"64b3db153a3e3043e7853dc3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Email Template",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/email-template/delete/64a1c871793cae4e39c0dd48",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"email-template",
+										"delete",
+										"64a1c871793cae4e39c0dd48"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Static Pages",
+					"item": [
+						{
+							"name": "Create Static Page",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Privacy Policy\",\n    \"description\": \"<p>Hello, I am privacy policy</p>\",\n    \"slug\": \"privacy-policy2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/static-page/create",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"static-page",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Static Page",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/static-page/lists/60ec2013337721fcbdcfca14",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"static-page",
+										"lists",
+										"60ec2013337721fcbdcfca14"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Static Pages",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pagination\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/static-page/lists?page=1&limit=2",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"static-page",
+										"lists"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Static Page",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"FAQ1\",\n    \"description\": \"Hell2o, I am fa1q\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CMS_URL}}/static-page/update/64a1be1b14faf65aa3bfa4c0",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"static-page",
+										"update",
+										"64a1be1b14faf65aa3bfa4c0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Static Page",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{CMS_URL}}/static-page/delete/64a1be1b14faf65aa3bfa4c0",
+									"host": [
+										"{{CMS_URL}}"
+									],
+									"path": [
+										"static-page",
+										"delete",
+										"64a1be1b14faf65aa3bfa4c0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "API Handshake",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CMS_URL}}",
+							"host": [
+								"{{CMS_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{CMS_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Set Env",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const api_env = pm.environment.name;",
+							"",
+							"const envs = {",
+							"    \"Local\": {",
+							"        \"CMS_URL\": \"http://localhost:4000/api/cms\",",
+							"        \"FRONT_URL\": \"http://localhost:4000/api/front\",",
+							"        \"CMS_TOKEN\": \"\",",
+							"        \"FRONT_TOKEN\": \"\",",
+							"    },",
+							"    \"Development\": {",
+							"        \"CMS_URL\": \"http://localhost:8000/api/cms\",",
+							"        \"FRONT_URL\": \"http://localhost:8000/api/front\",",
+							"        \"CMS_TOKEN\": \"\",",
+							"        \"FRONT_TOKEN\": \"\",",
+							"    },",
+							"    \"Staging\": {",
+							"        \"CMS_URL\": \"https://*.openxcell.dev/api/cms\",",
+							"        \"FRONT_URL\": \"https://*.openxcell.dev/api/front\",",
+							"        \"CMS_TOKEN\": \"\",",
+							"        \"FRONT_TOKEN\": \"\",",
+							"    },",
+							"    \"Production\": {",
+							"        \"CMS_URL\": \"https://*.clientwebsite.com/api/cms\",",
+							"        \"FRONT_URL\": \"https://*.clientwebsite.com/api/front\",",
+							"        \"CMS_TOKEN\": \"\",",
+							"        \"FRONT_TOKEN\": \"\",",
+							"    }",
+							"}",
+							"",
+							"pm.environment.clear();",
+							"",
+							"pm.environment.set(\"CMS_URL\", envs[api_env].CMS_URL);",
+							"pm.environment.set(\"FRONT_URL\", envs[api_env].FRONT_URL);",
+							"pm.environment.set(\"FRONT_TOKEN\", envs[api_env].FRONT_TOKEN);",
+							"pm.environment.set(\"CMS_TOKEN\", envs[api_env].CMS_TOKEN);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://google.com",
+					"protocol": "https",
+					"host": [
+						"google",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

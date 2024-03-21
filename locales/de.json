@@ -1,0 +1,114 @@
+{
+  "EMAIL_MESSAGES": {
+    "WELCOME_SUBJECT": "Willkommen in der OpenXcell-Familie",
+    "RESET_PASSWORD_SUBJECT": "Setze dein Passwort zurück",
+    "CHANGE_PASSWORD_SUBJECT": "Ihr Passwort wurde geändert",
+    "MAIL_SENT": "E-Mail gesendet",
+    "MAIL_INVALID": "Ungültig",
+    "MAIL_SUCCESS": "Erfolg",
+    "MAIL_FAILED": "Fehlgeschlagen",
+    "NO_EMAIL_TEMPLATE_FOUND": "Keine E-Mail-Vorlage gefunden",
+    "MAIL_SENT_MESSAGE": "Mail erfolgreich gesendet",
+    "VERIFICATION_MAIL_SENT_MESSAGE": "Bestätigungsmail erfolgreich gesendet"
+  },
+  "API_MESSAGES": {
+    "REGISTER_MESSAGE": "Erfolgreich registriert",
+    "LOGIN_MESSAGE": "Anmeldung erfolgreich",
+    "FORGOT_PASSWORD_MESSAGE": "Neues Passwort erfolgreich gesendet",
+    "RESET_PASSWORD_MESSAGE": "Passwort erfolgreich zurückgesetzt",
+    "ACCOUNT_VERIFIED_MESSAGE": "Konto erfolgreich bestätigt",
+    "CHANGE_PASSWORD_MESSAGE": "Das Passwort wurde erfolgreich geändert",
+    "LOGOUT_MESSAGE": "Abmelden erfolgreich"
+  },
+  "MESSAGES": {
+    "INVALID_DATA": "Die bereitgestellten Daten sind ungültig",
+    "NO_DATA_FOUND": "Keine Daten gefunden",
+    "ID_NOT_FOUND": "Mit dieser ID wurden keine Daten gefunden",
+    "INCORRECT_LOGIN": "falsche Email oder Passwort",
+    "USER_ALREADY_EXIST": "Dieses Benutzerkonto ist bereits vorhanden",
+    "ALREADY_VERIFIED": "Dieses Benutzerkonto ist bereits verifiziert",
+    "NOT_VERIFIED": "Dieses Benutzerkonto ist nicht verifiziert",
+    "NOT_ACTIVATED": "Dieses Benutzerkonto ist nicht aktiviert",
+    "PERMISSION_ALREADY_EXIST": "Name existiert bereits",
+    "PASSWORD_WRONG": "Ihr aktuelles Passwort ist falsch",
+    "SAME_PASSWORD": "Ihr Passwort ist dasselbe wie zuvor, bitte ändern Sie es in ein neues",
+    "INVALID_ROLE": "Bitte fügen Sie eine gültige Rolle hinzu",
+    "SITE_HANDSHAKE": "Hallo, ich bin eine Landing Page",
+    "API_HANDSHAKE": "Hallo, ich bin eine API-Homepage",
+    "FRONT_HANDSHAKE": "Hallo, ich bin eine Frontend-API-Homepage",
+    "CMS_HANDSHAKE": "Hallo, ich bin eine CMS-API-Homepage",
+    "ROLE_DELETE_NOT_ALLOWED": "Einer der Benutzer hat die Rolle, Sie können sie also nicht löschen",
+    "PROVIDE_VALID_OBJECT_ID": "Bitte geben Sie eine gültige ObjectId an",
+    "UPLOAD_FILE": "Bitte laden Sie die Datei hoch",
+    "INVALID_FILE": "Bitte laden Sie eine gültige Datei hoch",
+    "REFERRAL_USER_ALREADY_EXIST": "Dieses Empfehlungsbenutzerkonto ist bereits vorhanden",
+    "NOT_ALLOWED_TO_GO_BACKWARD": "Die Benutzerphase kann nicht zurückgehen"
+  },
+  "ERRORS": {
+    "UNKNOWN_ERROR": "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal!",
+    "TECHNICAL_ERROR": "Du bist es nicht. ",
+    "EMAIL_ERROR": "Beim Senden der E-Mail ist ein Fehler aufgetreten. ",
+    "S3_ERROR": "Bei der Verbindung mit s3 ist ein Fehler aufgetreten. ",
+    "FORBIDDEN_ERROR": "Sie haben keine Berechtigung, diese Aktion auszuführen",
+    "UNAUTHORIZED_ERROR": "Du bist nicht eingeloggt! ",
+    "TOKEN_NOT_EXIST_ERROR": "Der zu diesem Token gehörende Benutzer existiert nicht mehr",
+    "INVALID_TOKEN_ERROR": "Ungültiges Token. ",
+    "TOKEN_EXPIRED_ERROR": "Ihr Token ist abgelaufen. ",
+    "EXPIRED_TOKEN_ERROR": "Token ist ungültig oder abgelaufen",
+    "PASSWORD_CHANGED_ERROR": "Benutzer hat kürzlich sein Passwort geändert! ",
+    "RATE_LIMIT_ERROR": "Zu viele Anfragen von dieser IP. Bitte versuchen Sie es in einer Stunde erneut!",
+    "MAINTENANCE_ERROR": "Diese Site kann die HTTP-Anfrage derzeit aufgrund einer Serverwartung nicht verarbeiten. ",
+    "JSON_PARSE_ERROR": "Ungültiger JSON"
+  },
+  "FUNCTIONS": {
+    "ROUTE_NOT_FOUND": "Kann nicht finden {{- url}} auf diesem Server"
+  },
+  "DATA": {
+    "CREATED": "Daten erfolgreich erstellt.",
+    "RETRIEVED": "Daten erfolgreich abgerufen.",
+    "UPDATED": "Daten erfolgreich aktualisiert.",
+    "DELETED": "Daten erfolgreich gelöscht."
+  },
+  "EMAIL_TEMPLATE": {
+    "CREATED": "E-Mail-Vorlage erfolgreich erstellt.",
+    "RETRIEVED": "E-Mail-Vorlagen erfolgreich abgerufen.",
+    "UPDATED": "E-Mail-Vorlage erfolgreich aktualisiert.",
+    "DELETED": "E-Mail-Vorlage erfolgreich gelöscht."
+  },
+  "PERMISSION": {
+    "CREATED": "Berechtigung erfolgreich erstellt.",
+    "RETRIEVED": "Berechtigungen erfolgreich abgerufen.",
+    "UPDATED": "Berechtigung erfolgreich aktualisiert.",
+    "DELETED": "Berechtigung erfolgreich gelöscht."
+  },
+  "PROFILE": {
+    "CREATED": "Profil erfolgreich erstellt.",
+    "RETRIEVED": "Profile erfolgreich abgerufen.",
+    "UPDATED": "Profil erfolgreich aktualisiert.",
+    "DELETED": "Profil erfolgreich gelöscht."
+  },
+  "ADMIN_PROFILE": {
+    "CREATED": "Admin-Profil erfolgreich erstellt.",
+    "RETRIEVED": "Admin-Profile erfolgreich abgerufen.",
+    "UPDATED": "Das Administratorprofil wurde erfolgreich aktualisiert.",
+    "DELETED": "Admin-Profil erfolgreich gelöscht."
+  },
+  "ROLE": {
+    "CREATED": "Rolle erfolgreich erstellt.",
+    "RETRIEVED": "Rollen erfolgreich abgerufen.",
+    "UPDATED": "Rolle erfolgreich aktualisiert.",
+    "DELETED": "Rolle erfolgreich gelöscht."
+  },
+  "STATIC_PAGE": {
+    "CREATED": "Statische Seite erfolgreich erstellt.",
+    "RETRIEVED": "Statische Seiten erfolgreich abgerufen.",
+    "UPDATED": "Statische Seite erfolgreich aktualisiert.",
+    "DELETED": "Statische Seite erfolgreich gelöscht."
+  },
+  "USER": {
+    "CREATED": "Benutzer erfolgreich erstellt.",
+    "RETRIEVED": "Benutzer erfolgreich abgerufen.",
+    "UPDATED": "Benutzer erfolgreich aktualisiert.",
+    "DELETED": "Benutzer erfolgreich gelöscht."
+  }
+}
