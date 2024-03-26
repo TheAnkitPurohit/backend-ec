@@ -21,6 +21,7 @@ const protect = catchAsync(async (req, res, next) => {
   const headerToken = req.headers[TOKEN_HEADER_NAME] as string | undefined;
 
   const token = headerToken?.startsWith('Bearer') ? headerToken.split(' ')[1] : undefined;
+
   if (!token) return next(new AppError(constants.UNAUTHORIZED_ERROR, constants.UNAUTHORIZED));
 
   const decryptedToken = decrypt(
@@ -38,7 +39,46 @@ const protect = catchAsync(async (req, res, next) => {
   if (!user.isActive) return next(new AppError(constants.NOT_ACTIVATED, constants.UNAUTHORIZED));
 
   req.user = { _id: user._id };
-  req.permissions = user.permissions;
+  return next();
+});
+
+export const isAdmin = catchAsync(async (req, res, next) => {
+  const headerToken = req.headers[TOKEN_HEADER_NAME] as string | undefined;
+
+  const isAdminLogin = Roles.isAdmin(req.userType);
+  if (!isAdminLogin) {
+    return next(
+      new AppError(constants.NOT_VERIFIED, constants.UNAUTHORIZED, {
+        isVerified: false,
+      })
+    );
+  }
+
+  const token = headerToken?.startsWith('Bearer') ? headerToken.split(' ')[1] : undefined;
+
+  if (!token) return next(new AppError(constants.UNAUTHORIZED_ERROR, constants.UNAUTHORIZED));
+
+  console.log({ token });
+
+  const tokenInfo = await jwt.verify(token, config.ADMIN_JWT_SECRET);
+
+  if (!tokenInfo || tokenInfo === '')
+    return next(new AppError(constants.TOKEN_NOT_EXIST_ERROR, constants.UNAUTHORIZED));
+
+  if (!(tokenInfo instanceof Object) || !('_id' in tokenInfo))
+    return next(new AppError(constants.TOKEN_NOT_EXIST_ERROR, constants.UNAUTHORIZED));
+
+  if (!tokenInfo._id)
+    return next(new AppError(constants.TOKEN_NOT_EXIST_ERROR, constants.UNAUTHORIZED));
+
+  const admin = await Admin.findOne({
+    _id: tokenInfo._id,
+  });
+
+  if (!admin) return next(new AppError(constants.TOKEN_NOT_EXIST_ERROR, constants.UNAUTHORIZED));
+
+  req.user = { _id: admin._id };
+
   return next();
 });
 

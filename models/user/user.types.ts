@@ -5,18 +5,7 @@ import type {
   UserExtendedSchema,
 } from '@/models/user/shared/common.types';
 import type { AggregateType, NonNullish } from '@/types/common.types';
-import type { EmailSlug } from '@/types/services/email.types';
 import type { AggregatePaginateModel, Model, Types } from 'mongoose';
-
-export interface EmailLogSchema {
-  slug: EmailSlug;
-  status: string;
-  token?: string | null;
-  expiresIn?: Date | null;
-  fulfilledAt?: Date | null;
-}
-
-export type EmailLogModel = Model<EmailLogSchema>;
 
 export interface UserSchema {
   firstName: string;
@@ -27,7 +16,6 @@ export interface UserSchema {
   mobile?: string | null;
   countryCode?: string | null;
   countryIsoCode?: string | null;
-  emailLog: EmailLogSchema[];
   avatar?: string | null;
   role: Types.ObjectId;
   address?: string | null;

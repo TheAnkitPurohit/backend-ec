@@ -38,9 +38,11 @@ app.use(cookieParser()); // Body parser, reading data from cookie
 app.use(mongoSanitize()); // Data sanitization against NoSQL query injection
 app.use(hpp()); // Prevent parameter pollution
 app.use(compression()); // COMPRESS RESPONSE BODY
-app.use(fileUploadParser); // file uploads
+// app.use(fileUploadParser); // file uploads
+
+app.use(express.urlencoded({ extended: false })); // Body parser, reading data from form
 
 app.use(middleware); // to set global middleware
-app.all('*', maintenanceMode); // Maintenance Mode
+// app.all('*', maintenanceMode); // Maintenance Mode
 
 export default app;

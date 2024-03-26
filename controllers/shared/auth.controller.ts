@@ -2,7 +2,6 @@ import constants from '@/constants/constants';
 import { Roles } from '@/constants/json';
 import sendEmail, { getDecryptedEmailToken, verifyEmailLog } from '@/helpers/email.controller';
 import sendRes from '@/helpers/fn.controller';
-import Role from '@/models/role/role.model';
 import getUserOrAdminModel from '@/models/user/model';
 import User from '@/models/user/user.model';
 import {
@@ -13,7 +12,6 @@ import {
   signupValidation,
   verifyUserValidation,
 } from '@/models/user/validation';
-import { s3UploadSignedUrl } from '@/services/aws.service';
 import { AppError, catchAsync, isAppError } from '@/utils/appError';
 import { toObjectId, validator } from '@/utils/helper';
 
@@ -28,13 +26,12 @@ export const signup = catchAsync(async (req, res, next) => {
   const userCheck = await User.exists({ email: body.email, isActive: true });
   if (userCheck) return next(new AppError(constants.USER_ALREADY_EXIST, constants.BAD_REQUEST));
 
-  const role = await Role.exists({ _id: body.role, isActive: true, type: userType });
-  if (!role) return next(new AppError(constants.INVALID_ROLE, constants.BAD_REQUEST));
+  // const upload = await s3UploadSignedUrl({ name: body.avatar }, 'users');
+  // if (!upload) return next(new AppError(constants.S3_ERROR, constants.SERVER_ERROR));
 
-  const upload = await s3UploadSignedUrl({ name: body.avatar }, 'users');
-  if (!upload) return next(new AppError(constants.S3_ERROR, constants.SERVER_ERROR));
+  const user = await User.create({ ...body });
+  // const user = await User.create({ ...body, avatar: upload.path });
 
-  const user = await User.create({ ...body, avatar: upload.path });
   if (!user) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
 
   const isSent = await sendEmail(
@@ -52,7 +49,7 @@ export const signup = catchAsync(async (req, res, next) => {
 
   if (isAppError(isSent)) return next(isSent);
 
-  return sendRes({ _id: user._id, uploadDetails: upload }, constants.SUCCESS, req, res, {
+  return sendRes({ _id: user._id }, constants.SUCCESS, req, res, {
     token: true,
     message: constants.REGISTER_MESSAGE,
     showData: true,

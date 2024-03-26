@@ -15,7 +15,6 @@ const config = {
   PORT: process.env.PORT as string,
 
   ERROR_MODE: process.env.ERROR_MODE as Environment,
-  EMAIL_MODE: process.env.EMAIL_MODE as EmailMode,
 
   RULES_MODE: process.env.RULES_MODE as Switch,
   SECURE_MODE: process.env.SECURE_MODE as Switch,
@@ -34,16 +33,10 @@ const config = {
   EMAIL_TOKEN_SECRET: process.env.EMAIL_TOKEN_SECRET as string,
   EMAIL_TOKEN_EXPIRES_IN: process.env.EMAIL_TOKEN_EXPIRES_IN as string,
 
-  EMAIL_NAME: process.env.EMAIL_NAME as string,
-  EMAIL_FROM: process.env.EMAIL_FROM as string,
-
-  MAILTRAP_USERNAME: process.env.MAILTRAP_USERNAME as string,
-  MAILTRAP_PASSWORD: process.env.MAILTRAP_PASSWORD as string,
-
-  CLIENT_EMAIL: process.env.CLIENT_EMAIL as string,
-  CLIENT_ID: process.env.CLIENT_ID as string,
-  CLIENT_SECRET: process.env.CLIENT_SECRET as string,
-  CLIENT_REFRESH_TOKEN: process.env.CLIENT_REFRESH_TOKEN as string,
+  // CLIENT_EMAIL: process.env.CLIENT_EMAIL as string,
+  // CLIENT_ID: process.env.CLIENT_ID as string,
+  // CLIENT_SECRET: process.env.CLIENT_SECRET as string,
+  // CLIENT_REFRESH_TOKEN: process.env.CLIENT_REFRESH_TOKEN as string,
 
   AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID as string,
   AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY as string,
@@ -54,6 +47,28 @@ const config = {
   AWS_FOLDER: process.env.AWS_FOLDER as string,
   AWS_PRIVATE_BUCKET: process.env.AWS_PRIVATE_BUCKET as string,
   AWS_PRIVATE_FOLDER: process.env.AWS_PRIVATE_FOLDER as string,
+
+  DEFAULT_TAX: process.env.DEFAULT_TAX !== undefined ? parseFloat(process.env.DEFAULT_TAX) : 0,
+
+  ADMIN_JWT_SECRET: process.env.ADMIN_JWT_SECRET as string,
+  ADMIN_JWT_SECRET_REF: process.env.ADMIN_JWT_SECRET_REF as string,
+
+  USER_JWT_SECRET: process.env.USER_JWT_SECRET as string,
+  USER_JWT_SECRET_REF: process.env.USER_JWT_SECRET_REF as string,
+
+  SENDGRID_API_KEY: process.env.SENDGRID_API_KEY as string,
+
+  PRODUCT_STATUS: ['ACTIVE', 'DEACTIVATED'],
+  INQUIRY_STATUS: [
+    'INQUIRY_PENDING',
+    'INQUIRY_REJECTED',
+    'INQUIRY_ACCEPTED',
+    'INQUIRY_CANCELLED',
+    'INQUIRY_FINISH',
+  ],
+
+  ADMIN_EMAIL: process.env.ADMIN_EMAIL as string,
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD as string,
 };
 
 export default config;

@@ -1,0 +1,10 @@
+{
+  "CATEGORY": {
+    "UPDATED": "CATEGORY.UPDATED"
+  },
+  "GROUP": {
+    "CREATED": "GROUP.CREATED",
+    "RETRIEVED": "GROUP.RETRIEVED",
+    "UPDATED": "GROUP.UPDATED"
+  }
+}

@@ -1,5 +1,4 @@
 import type { types } from '@/constants/json';
-import type { PermissionSchema } from '@/models/permission/permission.types';
 import type { AdminModel } from '@/models/user/admin/admin.types';
 import type { UserModel } from '@/models/user/user.types';
 import type { IsUnion } from '@/types/common.types';
@@ -13,7 +12,6 @@ export interface CommonUserStaticsArg<P = boolean> {
 }
 
 export interface UserExtendedSchema<P = false> {
-  permissions: P extends true ? PermissionSchema[] : PermissionSchema[] | undefined;
   fullName: string;
   avatarUrl: string | null;
 }
