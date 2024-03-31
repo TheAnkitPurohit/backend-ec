@@ -19,3 +19,7 @@ export const updateGroupValidation = {
   body: groupValidation.body,
   params: paramsValidation,
 };
+
+export const deleteGroupValidation = {
+  params: paramsValidation,
+};

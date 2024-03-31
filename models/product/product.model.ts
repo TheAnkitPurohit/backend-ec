@@ -12,7 +12,6 @@ const productSchema = new Schema<ProductSchema, ProductCoreModel>(
       type: String,
       trim: true,
       required: true,
-      unique: true,
     },
     product_number: {
       type: String,

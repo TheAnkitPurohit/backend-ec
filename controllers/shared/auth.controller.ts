@@ -1,6 +1,5 @@
 import constants from '@/constants/constants';
 import { Roles } from '@/constants/json';
-import sendEmail, { getDecryptedEmailToken, verifyEmailLog } from '@/helpers/email.controller';
 import sendRes from '@/helpers/fn.controller';
 import getUserOrAdminModel from '@/models/user/model';
 import User from '@/models/user/user.model';
@@ -34,20 +33,7 @@ export const signup = catchAsync(async (req, res, next) => {
 
   if (!user) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
 
-  const isSent = await sendEmail(
-    { _id: user._id, userType },
-    {
-      slug: 'welcome',
-      email: {
-        to: user.email,
-        extra: {
-          fullName: `${user.firstName} ${user.lastName}`,
-        },
-      },
-    }
-  );
-
-  if (isAppError(isSent)) return next(isSent);
+  // if (isAppError(isSent)) return next(isSent);
 
   return sendRes({ _id: user._id }, constants.SUCCESS, req, res, {
     token: true,
@@ -102,20 +88,7 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
   const user = await Model.findOne({ email, isActive: true }).select('firstName lastName email');
   if (!user) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
 
-  const isSent = await sendEmail(
-    { _id: user._id, userType },
-    {
-      slug: 'reset-password',
-      email: {
-        to: user.email,
-        extra: {
-          fullName: `${user.firstName} ${user.lastName}`,
-        },
-      },
-    }
-  );
-
-  if (isAppError(isSent)) return next(isSent);
+  // if (isAppError(isSent)) return next(isSent);
 
   return sendRes(user, constants.SUCCESS, req, res, {
     message: constants.FORGOT_PASSWORD_MESSAGE,
@@ -126,27 +99,27 @@ validation.resetPassword = validator(resetPasswordValidation);
 export const resetPassword = catchAsync(async (req, res, next) => {
   const { params, body, userType } = req;
   const { token: encryptedToken } = params;
-  const { password } = body;
+  const { password, id } = body;
 
   const slug = 'reset-password';
   const Model = getUserOrAdminModel(userType);
 
-  const decryptedEmailToken = getDecryptedEmailToken(encryptedToken);
-  if (isAppError(decryptedEmailToken)) return next(decryptedEmailToken);
+  // const decryptedEmailToken = getDecryptedEmailToken(encryptedToken);
+  // if (isAppError(decryptedEmailToken)) return next(decryptedEmailToken);
 
-  const { id, token } = decryptedEmailToken;
+  // const { id, token } = decryptedEmailToken;
 
   const user = await Model.findOne({ _id: id, isActive: true }).select('+password');
-  if (!user) return next(new AppError(constants.EXPIRED_TOKEN_ERROR, constants.UNAUTHORIZED));
+  // if (!user) return next(new AppError(constants.EXPIRED_TOKEN_ERROR, constants.UNAUTHORIZED));
 
-  const checkPass = await user.comparePassword(password, user.password);
-  if (checkPass) return next(new AppError(constants.SAME_PASSWORD, constants.UNAUTHORIZED));
+  // const checkPass = await user.comparePassword(password, user.password);
+  // if (checkPass) return next(new AppError(constants.SAME_PASSWORD, constants.UNAUTHORIZED));
 
-  const isSent = await verifyEmailLog(userType, { id: toObjectId(id), slug, token });
-  if (isAppError(isSent)) return next(isSent);
+  // const isSent = await verifyEmailLog(userType, { id: toObjectId(id), slug, token });
+  // if (isAppError(isSent)) return next(isSent);
 
   await Model.findOneAndUpdate(
-    { _id: id, isActive: true },
+    { _id: '', isActive: true },
     {
       $set: { password },
     },
@@ -169,20 +142,7 @@ export const resendVerificationLink = catchAsync(async (req, res, next) => {
   if (!user) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
   if (user.isVerified) return next(new AppError(constants.ALREADY_VERIFIED, constants.BAD_REQUEST));
 
-  const isSent = await sendEmail(
-    { _id: user._id, userType },
-    {
-      slug: 'welcome',
-      email: {
-        to: user.email,
-        extra: {
-          fullName: `${user.firstName} ${user.lastName}`,
-        },
-      },
-    }
-  );
-
-  if (isAppError(isSent)) return next(isSent);
+  // if (isAppError(isSent)) return next(isSent);
 
   return sendRes(user, constants.SUCCESS, req, res, {
     message: constants.VERIFICATION_MAIL_SENT_MESSAGE,
@@ -192,23 +152,12 @@ export const resendVerificationLink = catchAsync(async (req, res, next) => {
 validation.verifyUser = validator(verifyUserValidation);
 export const verifyUser = catchAsync(async (req, res, next) => {
   const { params, userType } = req;
-  const { token: encryptedToken } = params;
+  const { token: encryptedToken, id } = params;
   const slug = 'welcome';
 
-  const decryptedEmailToken = getDecryptedEmailToken(encryptedToken);
-  if (isAppError(decryptedEmailToken)) return next(decryptedEmailToken);
+  // if (isAppError(decryptedEmailToken)) return next(decryptedEmailToken);
 
-  const { id, token } = decryptedEmailToken;
-  const isVerified = await User.exists({ _id: id, isActive: true, isVerified: true });
-
-  const isSent = await verifyEmailLog(userType, {
-    id: toObjectId(id),
-    slug,
-    token,
-    resetEverySlugEntries: isVerified ? constants.ALREADY_VERIFIED() : false,
-  });
-
-  if (isAppError(isSent)) return next(isSent);
+  // const { id, token } = decryptedEmailToken;
 
   const user = await User.findOneAndUpdate(
     { _id: id, isActive: true },

@@ -13,11 +13,26 @@ const categorySchema = new Schema<CategorySchema, CategoryCoreModel>(
   {
     name: {
       type: String,
-      unique: true,
     },
     enabled: {
       type: Boolean,
       default: false,
+    },
+    isDeleted: {
+      type: Boolean,
+      select: false,
+      default: false,
+    },
+    deletedAt: {
+      type: Date,
+      select: false,
+      default: null,
+    },
+    deletedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admin',
+      select: false,
+      default: null,
     },
   },
   schemaOptions

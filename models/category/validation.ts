@@ -19,3 +19,7 @@ export const updateCategoryValidation = {
   body: categoryValidation.body,
   params: paramsValidation,
 };
+
+export const deleteCategoryValidation = {
+  params: paramsValidation,
+};

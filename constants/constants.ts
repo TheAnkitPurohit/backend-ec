@@ -94,6 +94,7 @@ const CRUD_MESSAGES = {
   DATA_RETRIEVED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.RETRIEVED`),
   DATA_UPDATED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.UPDATED`),
   DATA_DELETED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.DELETED`),
+  ALREADY_EXISTS: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.ALREADY_EXISTS`),
 };
 
 const OTHERS = {
