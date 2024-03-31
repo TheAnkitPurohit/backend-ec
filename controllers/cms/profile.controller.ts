@@ -3,7 +3,6 @@ import sendRes from '@/helpers/fn.controller';
 import { deleteUploadedFile } from '@/helpers/image.controller';
 import Admin from '@/models/user/admin/admin.model';
 import { updateAdminProfileValidation } from '@/models/user/admin/validation';
-import getUserOrAdminModel from '@/models/user/model';
 import { changePasswordValidation, getProfileValidation } from '@/models/user/validation';
 import { AppError, catchAsync } from '@/utils/appError';
 import { validator } from '@/utils/helper';

@@ -19,7 +19,6 @@ export interface EReqLocals {
   isCMS: boolean;
   userType: PlatformType;
   user: EReqLocalUser;
-  permissions: UserExtendedSchema<true>['permissions'];
 }
 
 export type ECoreReq = ExpressRequest;
