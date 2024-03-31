@@ -18,6 +18,7 @@ export const globalMiddleware = async (req: EPartialReq, res: ERes, next: ENext)
 export const createFieldInReq =
   <T extends keyof EReqLocals, R extends EReqLocals[T]>(key: T, value: R) =>
   (req: EPartialReq, res: ERes, next: ENext): void => {
+    // @ts-expect-error local key can assigned to request so ignoring
     req[key] = value;
     next();
   };

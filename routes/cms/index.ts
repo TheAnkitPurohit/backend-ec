@@ -8,7 +8,6 @@ import adminRoute from '@/routes/cms/admin.route';
 import authRoute from '@/routes/cms/auth.route';
 import categoryRoute from '@/routes/cms/category.route';
 import dashboardRoute from '@/routes/cms/dashboard.route';
-import emailTemplateRoute from '@/routes/cms/emailTemplate.route';
 import groupRoute from '@/routes/cms/group.route';
 import profileRoute from '@/routes/cms/profile.route';
 import userRoute from '@/routes/cms/user.route';
@@ -30,7 +29,5 @@ Router.use('/dashboard', dashboardRoute);
 Router.use('/category', categoryRoute);
 Router.use('/group', groupRoute);
 Router.use('/product', groupRoute);
-
-// Router.use('/email-template', emailTemplateRoute);
 
 export default Router;
