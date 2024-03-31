@@ -4,24 +4,20 @@ import type {
   GetUserPipeline,
   UserExtendedSchema,
 } from '@/models/user/shared/common.types';
-import type { EmailLogSchema } from '@/models/user/user.types';
 import type { AggregateType, NonNullish } from '@/types/common.types';
-import type { AggregatePaginateModel, Model, Types } from 'mongoose';
+import type { AggregatePaginateModel, Model } from 'mongoose';
 
 export interface AdminSchema {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   password: string;
-  mobile?: string | null;
-  countryCode?: string | null;
-  countryIsoCode?: string | null;
-  emailLog: EmailLogSchema[];
+  refresh_token_id?: string | null;
   avatar?: string | null;
-  role: Types.ObjectId;
-  fcm?: string | null;
   isActive?: boolean;
   isDeleted?: boolean;
+  isMainAdmin?: boolean;
+  verifyEmailToken?: string | null;
+  isEmailVerified?: boolean;
 }
 
 export type EntireAdminSchema<T> = AdminSchema & UserExtendedSchema<T>;

@@ -24,5 +24,6 @@ yarn.lock
 
 # Custom
 *.log
-#.env.*
-#!.env.development
+.env.*
+!.env.development
+.env.development

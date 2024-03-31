@@ -1,16 +1,24 @@
 import { Router as ExpressRouter } from 'express';
 
 import {
-  forgotPassword,
+  generateToken,
   login,
   resetPassword,
   validation,
-} from '@/controllers/shared/auth.controller';
+  verifyEmail,
+} from '@/controllers/cms/auth.controller';
+import { upload } from '@/helpers/image.controller';
 
 const Router = ExpressRouter();
 
 Router.post('/login', validation.login, login);
-Router.post('/forgot-password', validation.forgotPassword, forgotPassword);
-Router.patch('/reset-password/:token', validation.resetPassword, resetPassword);
+Router.post('/generate-token', validation.generateTokenValidation, generateToken);
+Router.get('/verify-email/:token', validation.verifyEmailValidation, verifyEmail);
+Router.post(
+  '/set-password',
+  upload.single('avatar'),
+  validation.resetPasswordValidation,
+  resetPassword
+);
 
 export default Router;

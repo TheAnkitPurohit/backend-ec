@@ -18,7 +18,8 @@
     "RESET_PASSWORD_MESSAGE": "Reset Password Successfully",
     "ACCOUNT_VERIFIED_MESSAGE": "Account Verified Successfully",
     "CHANGE_PASSWORD_MESSAGE": "Password Changed Successfully",
-    "LOGOUT_MESSAGE": "Logout Successfully"
+    "LOGOUT_MESSAGE": "Logout Successfully",
+    "TOKEN_VERIFIED": "Token Verified Successfully"
   },
   "MESSAGES": {
     "INVALID_DATA": "Provided data is invalid",
@@ -110,5 +111,10 @@
     "RETRIEVED": "Users retrieved successfully.",
     "UPDATED": "User updated successfully.",
     "DELETED": "User deleted successfully."
+  },
+
+  "CATEGORY": {
+    "CREATED": "Category created successfully.",
+    "RETRIEVED": "Categories retrieved successfully."
   }
 }

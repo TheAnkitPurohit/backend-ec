@@ -1,4 +1,3 @@
-import type { EmailLogSchema } from '@/models/user/user.types';
 import type { Obj, ObjectId } from '@/types/common.types';
 import type { PlatformType } from '@/types/constants.types';
 import type { AppError } from '@/utils/appError';
@@ -40,24 +39,8 @@ interface EmailUser extends ObjectId {
 
 export type SendEmail = (user: EmailUser, data: EmailToken) => Promise<true | AppError>;
 
-interface VerifyEmailLogArg {
-  id: ObjectId['_id'];
-  slug: EmailLogSchema['slug'];
-  token: NonNullable<EmailLogSchema['token']>;
-  resetEverySlugEntries?: string | false;
-}
-
 export type GetEncryptedEmailToken = (
   id: ObjectId['_id']
 ) => Record<'token' | 'encryptedToken', string> | AppError;
 
 export type GetDecryptedEmailToken = (token: string) => Record<'id' | 'token', string> | AppError;
-
-export type ResetEmailLog = (user: EmailUser, slug: EmailLogSchema['slug']) => Promise<boolean>;
-
-export type CreateEmailLog = (user: EmailUser, log: EmailLogSchema) => Promise<boolean>;
-
-export type VerifyEmailLog = (
-  userType: PlatformType,
-  log: VerifyEmailLogArg
-) => Promise<true | AppError>;

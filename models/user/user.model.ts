@@ -10,8 +10,6 @@ import {
 } from '@/models/user/shared/common';
 
 import type {
-  EmailLogModel,
-  EmailLogSchema,
   UserCoreModel,
   UserCoreStatics,
   UserMethods,
@@ -20,36 +18,6 @@ import type {
   UserStatics,
 } from '@/models/user/user.types';
 import type { NonNullish } from '@/types/common.types';
-
-export const emailLogSchema = new Schema<EmailLogSchema, EmailLogModel>(
-  {
-    slug: {
-      type: String,
-      lowercase: true,
-      trim: true,
-      required: true,
-    },
-    status: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    token: {
-      type: String,
-      trim: true,
-      default: null,
-    },
-    expiresIn: {
-      type: Date,
-      default: null,
-    },
-    fulfilledAt: {
-      type: Date,
-      default: null,
-    },
-  },
-  schemaOptions
-);
 
 const userSchema = new Schema<
   UserSchema,
@@ -101,11 +69,6 @@ const userSchema = new Schema<
       type: String,
       trim: true,
       default: null,
-    },
-    emailLog: {
-      type: [emailLogSchema],
-      select: false,
-      required: true,
     },
     avatar: {
       type: String,

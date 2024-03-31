@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 import { Schema, model } from 'mongoose';
 import aggregatePaginate from 'mongoose-aggregate-paginate-v2';
 
@@ -8,7 +10,6 @@ import {
   preAggregateHook,
   preChangePasswordHook,
 } from '@/models/user/shared/common';
-import { emailLogSchema } from '@/models/user/user.model';
 
 import type {
   AdminCoreModel,
@@ -29,15 +30,9 @@ const adminSchema = new Schema<
   AdminCoreStatics
 >(
   {
-    firstName: {
+    name: {
       type: String,
       trim: true,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      trim: true,
-      required: true,
     },
     email: {
       type: String,
@@ -49,48 +44,32 @@ const adminSchema = new Schema<
       type: String,
       trim: true,
       select: false,
-      required: true,
     },
-    mobile: {
+    refresh_token_id: {
       type: String,
-      trim: true,
-      default: null,
-    },
-    countryCode: {
-      type: String,
-      trim: true,
-      default: null,
-    },
-    countryIsoCode: {
-      type: String,
-      trim: true,
-      default: null,
-    },
-    emailLog: {
-      type: [emailLogSchema],
-      select: false,
-      required: true,
     },
     avatar: {
       type: String,
       trim: true,
       default: null,
     },
-    role: {
-      type: Schema.Types.ObjectId,
-      ref: 'Role',
-      required: true,
-    },
-    fcm: {
-      type: String,
-      trim: true,
-      default: null,
-    },
     isActive: {
       type: Boolean,
-      default: true,
+      default: false, // Set default to false as email needs to be verified
+    },
+    isMainAdmin: {
+      type: Boolean,
+      default: false,
     },
     isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+    verifyEmailToken: {
+      type: String,
+      select: false, // Do not include this field by default
+    },
+    isEmailVerified: {
       type: Boolean,
       default: false,
     },

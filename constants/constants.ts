@@ -38,6 +38,8 @@ const API_MESSAGES = {
   ACCOUNT_VERIFIED_MESSAGE: () => i18next.t('API_MESSAGES.ACCOUNT_VERIFIED_MESSAGE'),
   CHANGE_PASSWORD_MESSAGE: () => i18next.t('API_MESSAGES.CHANGE_PASSWORD_MESSAGE'),
   LOGOUT_MESSAGE: () => i18next.t('API_MESSAGES.LOGOUT_MESSAGE'),
+
+  TOKEN_VERIFIED: () => i18next.t('API_MESSAGES.TOKEN_VERIFIED'),
 };
 
 const MESSAGES = {
@@ -92,6 +94,7 @@ const CRUD_MESSAGES = {
   DATA_RETRIEVED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.RETRIEVED`),
   DATA_UPDATED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.UPDATED`),
   DATA_DELETED: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.DELETED`),
+  ALREADY_EXISTS: (prefix: string) => i18next.t(`${FUNCTIONS.FORMAT(prefix)}.ALREADY_EXISTS`),
 };
 
 const OTHERS = {

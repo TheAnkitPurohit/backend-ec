@@ -1,6 +1,5 @@
 import constants from '@/constants/constants';
 import { Roles } from '@/constants/json';
-import { createEmailLog } from '@/helpers/email.controller';
 import sendRes from '@/helpers/fn.controller';
 import { updateAdminProfileValidation } from '@/models/user/admin/validation';
 import getUserOrAdminModel from '@/models/user/model';
@@ -98,11 +97,6 @@ export const changePassword = catchAsync(async (req, res, next) => {
   );
 
   if (!data) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
-
-  await createEmailLog(
-    { _id: userData._id, userType },
-    { slug: 'change-password', status: constants.MAIL_SUCCESS(), fulfilledAt: new Date() }
-  );
 
   return sendRes(userData, constants.SUCCESS, req, res, {
     message: constants.CHANGE_PASSWORD_MESSAGE,
