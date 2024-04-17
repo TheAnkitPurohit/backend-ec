@@ -21,6 +21,18 @@ const productValidation = {
 
 export const createProductValidation = productValidation;
 
+export const getAllProductValidation = {
+  query: Joi.object({
+    name: Joi.string().optional(),
+    order: Joi.number().optional(),
+    enabled: Joi.boolean().optional(),
+    createdFrom: Joi.date().optional(),
+    createdTo: Joi.date().optional(),
+    page: Joi.number().optional(),
+    limit: Joi.number().optional(),
+  }),
+};
+
 export const getProductValidation = {
   params: paramsValidation,
 };

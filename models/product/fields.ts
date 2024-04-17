@@ -11,9 +11,6 @@ const staticPageFields = {
   is_free_delivery: true,
   tax: true,
   status: true,
-  isDeleted: true,
-  deletedAt: true,
-  deletedBy: true,
 };
 
 export default staticPageFields;
