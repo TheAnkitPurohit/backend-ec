@@ -10,6 +10,10 @@ const groupSchema = new Schema<GroupSchema, GroupCoreModel>(
     name: {
       type: String,
     },
+    order: {
+      type: Number,
+      default: 0,
+    },
     enabled: {
       type: Boolean,
       default: false,

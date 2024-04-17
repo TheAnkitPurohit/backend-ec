@@ -15,6 +15,18 @@ export const getGroupValidation = {
   params: paramsValidation,
 };
 
+export const getAllGroupValidation = {
+  query: Joi.object({
+    name: Joi.string().optional(),
+    order: Joi.number().optional(),
+    enabled: Joi.boolean().optional(),
+    createdFrom: Joi.date().optional(),
+    createdTo: Joi.date().optional(),
+    page: Joi.number().optional(),
+    limit: Joi.number().optional(),
+  }),
+};
+
 export const updateGroupValidation = {
   body: groupValidation.body,
   params: paramsValidation,

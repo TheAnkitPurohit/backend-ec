@@ -1,0 +1,86 @@
+export const getAllCategory = catchAsync(async (req, res) => {
+  const {
+    name,
+    order,
+    enabled,
+    createdFrom,
+    createdTo,
+    page = 1,
+    limit = constants.PER_PAGE_LIMIT,
+  } = req.query;
+
+  console.log({ name, order, enabled, createdFrom, createdTo, page, limit });
+  const matchParams = makeParams({
+    isDeleted: false,
+  });
+
+  if (name) {
+    const nameFilter = Array.isArray(name)
+      ? name.map(n => new RegExp(n as string, 'i'))
+      : new RegExp(name as string, 'i');
+    matchParams.push({ $match: { name: { $in: nameFilter } } });
+  }
+
+  const pipeline = [
+    ...matchParams,
+    // { $sort: makeSortParams(order , 'createdAt') },
+    { $project: { _id: 1, name: 1, enabled: 1, createdAt: 1 } },
+  ];
+
+  // if (name) {
+  //   const nameFilter = Array.isArray(name)
+  //     ? name.map(n => new RegExp(n as string, 'i'))
+  //     : new RegExp(name as string, 'i');
+  //   matchParams.push({ $match: { name: nameFilter } });
+  // }
+
+  // if (order) {
+  //   const orderFilter = parseInt(order as string, 10);
+  //   matchParams.push({ $match: { order: orderFilter } });
+  // }
+
+  // if (enabled !== undefined) {
+  //   const enabledFilter = enabled === 'true';
+  //   matchParams.push({ $match: { enabled: enabledFilter } });
+  // }
+
+  // if (createdFrom || createdTo) {
+  //   const dateField = 'createdAt';
+  //   const startDate = createdFrom ? moment(createdFrom).toDate() : undefined;
+  //   const endDate = createdTo ? moment(createdTo).toDate() : undefined;
+  //   const dateParams = makeDateParams(dateField, startDate, endDate);
+  //   matchParams.push({ $match: dateParams });
+  // }
+
+  // const searchFields = 'name,order,enabled'; e
+  // const searchQuery = req.query.search;
+  // const searchParams = makeSearchParams(searchQuery, searchFields);
+
+  // Aggregation pipeline
+  // const pipeline = [
+  //   ...matchParams,
+  //   { $sort: makeSortParams(order, 'createdAt') },
+  //   { $project: { name: 1, order: 1, enabled: 1, createdAt: 1 } },
+  //   { $match: searchParams },
+  // ];
+
+  const options = {
+    page: parseInt(page as string, 10),
+    limit: parseInt(limit as string, 10),
+  };
+
+  const data = await Category.aggregatePaginate({
+    page: +page,
+    limit: +limit,
+    pagination,
+  });
+
+  // Executing aggregation with pagination
+  const result = await Category.aggregatePaginate(Category.aggregate(pipeline), options);
+
+  return sendRes(result, constants.SUCCESS, req, res, {
+    message: constants.DATA_RETRIEVED('Category'),
+    showData: true,
+    showEmpty: true,
+  });
+});

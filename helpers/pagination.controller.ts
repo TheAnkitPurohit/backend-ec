@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import { escapeRegex } from '@/utils/helper';
 
@@ -21,6 +21,8 @@ export const makeParams: MakeParams = obj =>
 export const makeSearchParams: MakeSearchParams = (search, fields) => {
   if (search && fields) {
     const searchFields = fields.split(',').map(cur => cur.trim());
+
+    console.log({ searchFields });
 
     return {
       $expr: {
@@ -47,10 +49,12 @@ export const makeDateParams: MakeDateParams = (dateField, startDate, endDate) =>
     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     const field = dateField || 'createdAt';
 
+    console.log(dayjs(startDate).toDate());
+
     return {
       [field]: {
-        $gte: moment(startDate).toDate(),
-        $lte: moment(endDate).toDate(),
+        $gte: dayjs(startDate).toDate(),
+        $lte: dayjs(endDate).toDate(),
       },
     };
   }

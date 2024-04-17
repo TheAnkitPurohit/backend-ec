@@ -1,5 +1,5 @@
 import type { PrimitiveType } from '@/types/common.types';
-import type { MomentInput } from 'moment/moment';
+import type { Dayjs } from 'dayjs';
 import type { PipelineStage, Types } from 'mongoose';
 
 type AggregationMatch = PipelineStage.Match['$match'];
@@ -16,8 +16,8 @@ export type MakeSearchParams = (search?: string, fields?: string) => Aggregation
 
 export type MakeDateParams = (
   dateField?: string,
-  startDate?: MomentInput,
-  endDate?: MomentInput
+  startDate?: Dayjs | string | number | Date,
+  endDate?: Dayjs | string | number | Date
 ) => AggregationMatch;
 
 export type MakeSortParams = (sort?: AggregationSort[string], sortBy?: string) => AggregationSort;

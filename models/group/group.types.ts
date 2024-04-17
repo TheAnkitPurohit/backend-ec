@@ -2,6 +2,7 @@ import type { AggregatePaginateModel, Model } from 'mongoose';
 
 export interface GroupSchema {
   name: string;
+  order: number;
   enabled: boolean;
   isDeleted: boolean;
   deletedAt: Date | null;

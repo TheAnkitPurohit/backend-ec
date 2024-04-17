@@ -1,9 +1,11 @@
 import constants from '@/constants/constants';
 import sendRes from '@/helpers/fn.controller';
+import { makeDateParams } from '@/helpers/pagination.controller';
 import Category from '@/models/category/category.model';
 import {
   createCategoryValidation,
   deleteCategoryValidation,
+  getAllCategoryValidation,
   getCategoryValidation,
   updateCategoryValidation,
 } from '@/models/category/validation';
@@ -33,13 +35,52 @@ export const createCategory = catchAsync(async (req, res, next) => {
   });
 });
 
+validation.getAllCategoryValidation = validator(getAllCategoryValidation);
 export const getAllCategory = catchAsync(async (req, res) => {
-  const data = await Category.find({ isDeleted: false }, { _id: 1, name: 1, enabled: 1 });
+  const {
+    name,
+    order,
+    enabled,
+    createdFrom,
+    createdTo,
+    page = 1,
+    limit = constants.PER_PAGE_LIMIT,
+  } = req.query;
+
+  const aggregate = Category.aggregate();
+  const dateField = 'createdAt';
+
+  if (name) {
+    aggregate.match({ name: { $regex: name, $options: 'i' } });
+  }
+
+  if (order) {
+    aggregate.match({ order: Number(order) });
+  }
+
+  if (
+    createdFrom &&
+    createdTo &&
+    typeof createdFrom === 'string' &&
+    typeof createdTo === 'string'
+  ) {
+    aggregate.match(makeDateParams(dateField, createdFrom, createdTo));
+  }
+
+  if (enabled !== undefined && typeof enabled === 'string') {
+    const isEnabled = enabled.toLowerCase() === 'true';
+    aggregate.match({ enabled: isEnabled });
+  }
+
+  const data = await Category.aggregatePaginate(aggregate, {
+    page: +page,
+    limit: +limit,
+    pagination: true,
+  });
 
   return sendRes(data, constants.SUCCESS, req, res, {
-    message: constants.DATA_RETRIEVED('Category'),
-    showData: true,
-    showEmpty: true,
+    pagination: true,
+    prefix: 'Category',
   });
 });
 

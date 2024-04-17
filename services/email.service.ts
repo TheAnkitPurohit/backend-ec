@@ -38,11 +38,7 @@ class SendGridMailer {
       console.log(response[0].statusCode);
       console.log(response[0].headers);
     } catch (error: any) {
-      if (error.response?.body?.errors) {
-        console.error('SendGrid API Errors:', error.response.body.errors);
-      } else {
-        console.error('Failed to send email:', error);
-      }
+      console.log({ error });
       throw error;
     }
   }

@@ -16,7 +16,7 @@ validation.create = validator(createAdminValidation);
 export const create = catchAsync(async (req, res, next) => {
   const { body } = req;
 
-  const userCheck = await Admin.exists({ email: body.email });
+  const userCheck = await Admin.exists({ email: body.email, isDeleted: false });
 
   if (userCheck) return next(new AppError(constants.USER_ALREADY_EXIST, constants.BAD_REQUEST));
 
@@ -39,7 +39,7 @@ export const create = catchAsync(async (req, res, next) => {
     await sendGridMailer.sendEmail(message);
   } catch (error) {
     console.error('Failed to send email:', error);
-    return next(new AppError(constants.MAIL_FAILED, constants.SERVER_ERROR));
+    return next(new AppError(constants.MAIL_FAILED, constants.BAD_REQUEST));
   }
   // Store the token in the database along with the user's details
   body.verifyEmailToken = token;
@@ -55,9 +55,19 @@ export const create = catchAsync(async (req, res, next) => {
 });
 
 export const list = catchAsync(async (req, res) => {
-  const data = await Admin.find({ isDeleted: false, isMainAdmin: false });
+  const data = await Admin.find(
+    { isDeleted: false, isMainAdmin: false },
+    {
+      isDeleted: 0,
+      isEmailVerified: 0,
+      isMainAdmin: 0,
+      updatedAt: 0,
+    }
+  );
 
   return sendRes(data, constants.SUCCESS, req, res, {
     message: constants.DATA_RETRIEVED('Admin'),
+    showData: true,
+    showEmpty: true,
   });
 });

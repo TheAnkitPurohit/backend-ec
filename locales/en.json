@@ -106,6 +106,9 @@
     "UPDATED": "Static Page updated successfully.",
     "DELETED": "Static Page deleted successfully."
   },
+  "ADMIN": {
+    "RETRIEVED": "Admin  Retrived Successfully"
+  },
   "USER": {
     "CREATED": "User created successfully.",
     "RETRIEVED": "Users retrieved successfully.",
@@ -115,6 +118,17 @@
 
   "CATEGORY": {
     "CREATED": "Category created successfully.",
-    "RETRIEVED": "Categories retrieved successfully."
+    "RETRIEVED": "Categories retrieved successfully.",
+    "UPDATED": "Category updated successfully.",
+    "ALREADY_EXISTS": "Category already exists",
+    "DELETED": "Category deleted successfully."
+  },
+
+  "GROUP": {
+    "CREATED": "Group created successfully.",
+    "RETRIEVED": "Groups retrieved successfully.",
+    "UPDATED": "Group updated successfully.",
+    "ALREADY_EXISTS": "Group already exists",
+    "DELETED": "Group deleted successfully."
   }
 }

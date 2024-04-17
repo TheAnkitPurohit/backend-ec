@@ -18,7 +18,8 @@
     "RESET_PASSWORD_MESSAGE": "Passwort erfolgreich zurückgesetzt",
     "ACCOUNT_VERIFIED_MESSAGE": "Konto erfolgreich bestätigt",
     "CHANGE_PASSWORD_MESSAGE": "Das Passwort wurde erfolgreich geändert",
-    "LOGOUT_MESSAGE": "Abmelden erfolgreich"
+    "LOGOUT_MESSAGE": "Abmelden erfolgreich",
+    "TOKEN_VERIFIED": "Token Verified Successfully"
   },
   "MESSAGES": {
     "INVALID_DATA": "Die bereitgestellten Daten sind ungültig",
@@ -105,10 +106,29 @@
     "UPDATED": "Statische Seite erfolgreich aktualisiert.",
     "DELETED": "Statische Seite erfolgreich gelöscht."
   },
+  "ADMIN": {
+    "RETRIEVED": "Admin  Retrived Successfully"
+  },
   "USER": {
-    "CREATED": "Benutzer erfolgreich erstellt.",
-    "RETRIEVED": "Benutzer erfolgreich abgerufen.",
-    "UPDATED": "Benutzer erfolgreich aktualisiert.",
-    "DELETED": "Benutzer erfolgreich gelöscht."
+    "CREATED": "User created successfully.",
+    "RETRIEVED": "Users retrieved successfully.",
+    "UPDATED": "User updated successfully.",
+    "DELETED": "User deleted successfully."
+  },
+
+  "CATEGORY": {
+    "CREATED": "Category created successfully.",
+    "RETRIEVED": "Categories retrieved successfully.",
+    "UPDATED": "Category updated successfully.",
+    "ALREADY_EXISTS": "Category already exists",
+    "DELETED": "Category deleted successfully."
+  },
+
+  "GROUP": {
+    "CREATED": "Group created successfully.",
+    "RETRIEVED": "Groups retrieved successfully.",
+    "UPDATED": "Group updated successfully.",
+    "ALREADY_EXISTS": "Group already exists",
+    "DELETED": "Group deleted successfully."
   }
 }

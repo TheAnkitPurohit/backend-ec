@@ -14,6 +14,10 @@ const categorySchema = new Schema<CategorySchema, CategoryCoreModel>(
     name: {
       type: String,
     },
+    order: {
+      type: Number,
+      default: 0,
+    },
     enabled: {
       type: Boolean,
       default: false,
