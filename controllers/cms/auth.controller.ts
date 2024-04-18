@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,11 +10,13 @@ import sendRes from '@/helpers/fn.controller';
 import { deleteUploadedFile } from '@/helpers/image.controller';
 import Admin from '@/models/user/admin/admin.model';
 import {
+  forgotPasswordValidation,
   generateTokenValidation,
   loginValidation,
   resetPasswordValidation,
-  verifyEmailValidation,
+  verifyTokenValidation,
 } from '@/models/user/admin/validation';
+import sendGridMailer from '@/services/email.service';
 import { AppError, catchAsync } from '@/utils/appError';
 import { validator } from '@/utils/helper';
 
@@ -79,10 +83,12 @@ export const login = catchAsync(async (req, res, next) => {
   );
 });
 
-validation.verifyEmailValidation = validator(verifyEmailValidation);
-export const verifyEmail = catchAsync(async (req, res, next) => {
+validation.verifyTokenValidation = validator(verifyTokenValidation);
+export const verifyToken = catchAsync(async (req, res, next) => {
   const { params, userType } = req;
   const { token } = params;
+
+  console.log({ token });
 
   const isAdmin = Roles.isAdmin(userType);
   if (!isAdmin) {
@@ -96,8 +102,8 @@ export const verifyEmail = catchAsync(async (req, res, next) => {
   const admin = await Admin.findOne({
     verifyEmailToken: token,
     isDeleted: false,
-    isEmailVerified: false,
   });
+
   if (!admin) {
     return next(new AppError(constants.INVALID_TOKEN_ERROR, constants.BAD_REQUEST));
   }
@@ -108,69 +114,13 @@ export const verifyEmail = catchAsync(async (req, res, next) => {
   return sendRes(
     {
       _id: admin._id,
+      name: admin.name,
     },
     constants.SUCCESS,
     req,
     res,
     {
       message: constants.TOKEN_VERIFIED,
-    }
-  );
-});
-
-validation.resetPasswordValidation = validator(resetPasswordValidation);
-export const resetPassword = catchAsync(async (req, res, next) => {
-  const { userType, body } = req;
-  const { password, token } = body;
-
-  const isAdmin = Roles.isAdmin(userType);
-  if (!isAdmin) {
-    if (req.file) {
-      deleteUploadedFile(req.file.filename);
-    }
-    return next(
-      new AppError(constants.NOT_VERIFIED, constants.UNAUTHORIZED, {
-        isVerified: false,
-      })
-    );
-  }
-
-  const admin = await Admin.findOne({
-    verifyEmailToken: token,
-    isDeleted: false,
-    isEmailVerified: true,
-  });
-
-  if (!admin) {
-    if (req.file) {
-      deleteUploadedFile(req.file.filename);
-    }
-    return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
-  }
-
-  admin.password = password;
-  admin.isActive = true;
-
-  if (admin.avatar && req.file) {
-    deleteUploadedFile(admin.avatar);
-  }
-
-  if (req.file) {
-    admin.avatar = req.file.filename;
-  }
-
-  // admin.verifyEmailToken = undefined
-  await admin.save();
-
-  return sendRes(
-    {
-      _id: admin._id,
-    },
-    constants.SUCCESS,
-    req,
-    res,
-    {
-      message: constants.RESET_PASSWORD_MESSAGE,
     }
   );
 });
@@ -245,4 +195,105 @@ export const generateToken = catchAsync(async (req, res, next) => {
       showData: true,
     }
   );
+});
+
+validation.resetPasswordValidation = validator(resetPasswordValidation);
+export const resetPassword = catchAsync(async (req, res, next) => {
+  const { userType, body } = req;
+  const { password, token } = body;
+
+  console.log({ userType, body, password, token });
+
+  const isAdmin = Roles.isAdmin(userType);
+  if (!isAdmin) {
+    // if (req.file) {
+    //   deleteUploadedFile(req.file.filename);
+    // }
+    return next(
+      new AppError(constants.NOT_VERIFIED, constants.UNAUTHORIZED, {
+        isVerified: false,
+      })
+    );
+  }
+
+  const admin = await Admin.findOne({
+    verifyEmailToken: token,
+    isDeleted: false,
+    isEmailVerified: true,
+  });
+
+  if (!admin) {
+    // if (req.file) {
+    //   deleteUploadedFile(req.file.filename);
+    // }
+    return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
+  }
+
+  admin.password = password;
+  admin.isActive = true;
+
+  // if (admin.avatar && req.file) {
+  //   deleteUploadedFile(admin.avatar);
+  // }
+
+  // if (req.file) {
+  //   admin.avatar = req.file.filename;
+  // }
+
+  // admin.verifyEmailToken = undefined
+  await admin.save();
+
+  return sendRes(
+    {
+      _id: admin._id,
+    },
+    constants.SUCCESS,
+    req,
+    res,
+    {
+      message: constants.RESET_PASSWORD_MESSAGE,
+    }
+  );
+});
+
+validation.forgotPasswordValidation = validator(forgotPasswordValidation);
+export const forgotPassword = catchAsync(async (req, res, next) => {
+  const { body } = req;
+  const { email } = body;
+
+  const admin = await Admin.findOne({ email, isDeleted: false });
+  console.log({ admin });
+
+  if (!admin) return next(new AppError(constants.USER_ALREADY_EXIST, constants.BAD_REQUEST));
+
+  // Generate a unique token for email verification
+  const token = crypto.randomBytes(32).toString('hex');
+
+  // Create verification URL
+  const verificationUrl = `${req.protocol}://${req.get('host')}/set-password/${token}`;
+
+  console.log({ verificationUrl });
+
+  const message = {
+    to: email,
+    subject: 'Reset your Account',
+    text: `Please click on the following link to reset your account: ${verificationUrl}`,
+    html: `<strong>Please click on the following link to reset your account:</strong> <a href="${verificationUrl}">${verificationUrl}</a>`,
+  };
+
+  try {
+    await sendGridMailer.sendEmail(message);
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    return next(new AppError(constants.MAIL_FAILED, constants.BAD_REQUEST));
+  }
+  // Store the token in the database along with the user's details
+  admin.verifyEmailToken = token;
+  await admin.save();
+
+  return sendRes({}, constants.SUCCESS, req, res, {
+    message: constants.MAIL_SUCCESS,
+    showEmpty: true,
+    showData: false,
+  });
 });

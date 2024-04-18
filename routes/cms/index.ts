@@ -2,7 +2,7 @@ import { Router as ExpressRouter } from 'express';
 
 import constants from '@/constants/constants';
 import { types } from '@/constants/json';
-import { isAdmin } from '@/middlewares/auth.middleware';
+import { isAdmin, isMainAdmin } from '@/middlewares/auth.middleware';
 import { createFieldInReq } from '@/middlewares/global.middleware';
 import adminRoute from '@/routes/cms/admin.route';
 import authRoute from '@/routes/cms/auth.route';
@@ -19,9 +19,9 @@ Router.get('/', (req, res) => res.send(constants.CMS_HANDSHAKE()));
 
 Router.use('/auth', createFieldInReq('userType', types.CMS), authRoute, notFoundRoute);
 
-// Router.use(isAdmin);
+Router.use(isAdmin);
 
-Router.use('/admin', adminRoute);
+Router.use('/admin', isMainAdmin, adminRoute);
 
 Router.use('/profile', profileRoute);
 Router.use('/user', userRoute);

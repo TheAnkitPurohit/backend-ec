@@ -8,19 +8,26 @@ import {
   tokenValidation,
 } from '@/models/shared/validation';
 
+export const createAdminValidation = {
+  body: Joi.object({
+    email: emailValidation,
+    name: Joi.string().required(),
+  }),
+};
+
+export const deactiveAdminValidation = {
+  body: Joi.object({
+    email: emailValidation,
+  }),
+};
+
 export const updateAdminProfileValidation = {
   body: Joi.object({
     name: Joi.string().required(),
   }),
 };
 
-export const createAdminValidation = {
-  body: Joi.object({
-    email: emailValidation,
-  }),
-};
-
-export const verifyEmailValidation = {
+export const verifyTokenValidation = {
   params: tokenValidation,
 };
 
@@ -29,6 +36,12 @@ export const resetPasswordValidation = {
     token: Joi.string().required(),
   }),
   params: tokenValidation,
+};
+
+export const forgotPasswordValidation = {
+  body: Joi.object({
+    email: emailValidation,
+  }),
 };
 
 export const generateTokenValidation = {

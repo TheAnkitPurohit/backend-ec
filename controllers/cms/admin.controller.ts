@@ -3,7 +3,7 @@ import crypto from 'crypto';
 import constants from '@/constants/constants';
 import sendRes from '@/helpers/fn.controller';
 import Admin from '@/models/user/admin/admin.model';
-import { createAdminValidation } from '@/models/user/admin/validation';
+import { createAdminValidation, deactiveAdminValidation } from '@/models/user/admin/validation';
 import sendGridMailer from '@/services/email.service';
 import { AppError, catchAsync } from '@/utils/appError';
 import { validator } from '@/utils/helper';
@@ -24,9 +24,7 @@ export const create = catchAsync(async (req, res, next) => {
   const token = crypto.randomBytes(32).toString('hex');
 
   // Create verification URL
-  const verificationUrl = `${req.protocol}://${req.get('host')}/verify-email/${token}`;
-
-  console.log({ verificationUrl });
+  const verificationUrl = `${req.protocol}://${req.get('host')}/set-password/${token}`;
 
   const message = {
     to: body.email,
@@ -69,5 +67,21 @@ export const list = catchAsync(async (req, res) => {
     message: constants.DATA_RETRIEVED('Admin'),
     showData: true,
     showEmpty: true,
+  });
+});
+
+validation.deactiveAdminValidation = validator(deactiveAdminValidation);
+export const deActive = catchAsync(async (req, res, next) => {
+  const { body } = req;
+
+  const admin = await Admin.findOne({ email: body.email, isDeleted: false, isMainAdmin: false });
+
+  if (!admin) return next(new AppError(constants.NO_DATA_FOUND, constants.BAD_REQUEST));
+
+  admin.isDeleted = true;
+  await admin.save();
+
+  return sendRes({ _id: admin._id }, constants.SUCCESS, req, res, {
+    message: constants.DATA_DELETED('Admin'),
   });
 });

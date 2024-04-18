@@ -58,8 +58,6 @@ export const isAdmin = catchAsync(async (req, res, next) => {
 
   if (!token) return next(new AppError(constants.UNAUTHORIZED_ERROR, constants.UNAUTHORIZED));
 
-  console.log({ token });
-
   const tokenInfo = await jwt.verify(token, config.ADMIN_JWT_SECRET);
 
   if (!tokenInfo || tokenInfo === '')
@@ -77,7 +75,24 @@ export const isAdmin = catchAsync(async (req, res, next) => {
 
   if (!admin) return next(new AppError(constants.TOKEN_NOT_EXIST_ERROR, constants.UNAUTHORIZED));
 
-  req.user = { _id: admin._id };
+  if (admin?.isMainAdmin) {
+    req.user = { _id: admin._id };
+    req.isMainAdmin = true;
+  } else {
+    req.user = { _id: admin._id };
+  }
+
+  return next();
+});
+
+export const isMainAdmin = catchAsync(async (req, res, next) => {
+  if (!req.isMainAdmin) {
+    return next(
+      new AppError(constants.NOT_VERIFIED, constants.UNAUTHORIZED, {
+        isVerified: false,
+      })
+    );
+  }
 
   return next();
 });

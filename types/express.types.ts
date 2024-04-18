@@ -19,6 +19,7 @@ export interface EReqLocals {
   isCMS: boolean;
   userType: PlatformType;
   user: EReqLocalUser;
+  isMainAdmin?: boolean;
 }
 
 export type ECoreReq = ExpressRequest;
