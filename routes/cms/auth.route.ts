@@ -8,7 +8,6 @@ import {
   validation,
   verifyToken,
 } from '@/controllers/cms/auth.controller';
-import { upload } from '@/helpers/image.controller';
 
 const Router = ExpressRouter();
 

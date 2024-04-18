@@ -107,7 +107,8 @@
     "DELETED": "Static Page deleted successfully."
   },
   "ADMIN": {
-    "RETRIEVED": "Admin  Retrived Successfully"
+    "RETRIEVED": "Admin  Retrived Successfully",
+    "DELETED": "Admin Deleted Successfully"
   },
   "USER": {
     "CREATED": "User created successfully.",
