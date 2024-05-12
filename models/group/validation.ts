@@ -5,6 +5,7 @@ import { paramsValidation } from '@/models/shared/validation';
 const groupValidation = {
   body: Joi.object({
     name: Joi.string().required(),
+    order: Joi.number().default(0),
     enabled: Joi.boolean(),
   }),
 };

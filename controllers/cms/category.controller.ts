@@ -50,6 +50,8 @@ export const getAllCategory = catchAsync(async (req, res) => {
   const aggregate = Category.aggregate();
   const dateField = 'createdAt';
 
+  aggregate.match({ isDeleted: false });
+
   if (name) {
     aggregate.match({ name: { $regex: name, $options: 'i' } });
   }

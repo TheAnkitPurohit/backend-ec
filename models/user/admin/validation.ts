@@ -1,17 +1,22 @@
 import { Joi } from 'express-validation';
 
-import {
-  emailValidation,
-  login,
-  passwordValidation,
-  resetPassword,
-  tokenValidation,
-} from '@/models/shared/validation';
+import { emailValidation, login, resetPassword, tokenValidation } from '@/models/shared/validation';
 
 export const createAdminValidation = {
   body: Joi.object({
     email: emailValidation,
     name: Joi.string().required(),
+  }),
+};
+
+export const getAllAdminValidation = {
+  query: Joi.object({
+    name: Joi.string().optional(),
+    status: Joi.boolean().optional(),
+    startDate: Joi.date().optional(),
+    endDate: Joi.date().optional(),
+    page: Joi.number().optional(),
+    limit: Joi.number().optional(),
   }),
 };
 

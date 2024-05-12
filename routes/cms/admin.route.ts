@@ -5,7 +5,7 @@ import { create, deActive, list, validation } from '@/controllers/cms/admin.cont
 const Router = ExpressRouter();
 
 Router.post('/create', validation.create, create);
-Router.get('/list', list);
+Router.get('/list', validation.getAllAdminValidation, list);
 Router.put('/deactive', validation.deactiveAdminValidation, deActive);
 
 export default Router;

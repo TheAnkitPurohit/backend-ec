@@ -2,8 +2,13 @@ import crypto from 'crypto';
 
 import constants from '@/constants/constants';
 import sendRes from '@/helpers/fn.controller';
+import { makeDateParams } from '@/helpers/pagination.controller';
 import Admin from '@/models/user/admin/admin.model';
-import { createAdminValidation, deactiveAdminValidation } from '@/models/user/admin/validation';
+import {
+  createAdminValidation,
+  deactiveAdminValidation,
+  getAllAdminValidation,
+} from '@/models/user/admin/validation';
 import sendGridMailer from '@/services/email.service';
 import { AppError, catchAsync } from '@/utils/appError';
 import { validator } from '@/utils/helper';
@@ -52,21 +57,44 @@ export const create = catchAsync(async (req, res, next) => {
   });
 });
 
+validation.getAllAdminValidation = validator(getAllAdminValidation);
 export const list = catchAsync(async (req, res) => {
-  const data = await Admin.find(
-    { isDeleted: false, isMainAdmin: false },
-    {
-      isDeleted: 0,
-      isEmailVerified: 0,
-      isMainAdmin: 0,
-      updatedAt: 0,
-    }
-  );
+  const {
+    name,
+    status,
+    startDate,
+    endDate,
+    page = 1,
+    limit = constants.PER_PAGE_LIMIT,
+  } = req.query;
+
+  const aggregate = Admin.aggregate();
+  const dateField = 'createdAt';
+
+  aggregate.match({ isDeleted: false, isMainAdmin: false });
+
+  if (name) {
+    aggregate.match({ name: { $regex: name, $options: 'i' } });
+  }
+
+  if (startDate && endDate && typeof startDate === 'string' && typeof endDate === 'string') {
+    aggregate.match(makeDateParams(dateField, startDate, endDate));
+  }
+
+  if (status !== undefined && typeof status === 'string') {
+    const isEnabled = status.toLowerCase() === 'true';
+    aggregate.match({ enabled: isEnabled });
+  }
+
+  const data = await Admin.aggregatePaginate(aggregate, {
+    page: +page,
+    limit: +limit,
+    pagination: true,
+  });
 
   return sendRes(data, constants.SUCCESS, req, res, {
-    message: constants.DATA_RETRIEVED('Admin'),
-    showData: true,
-    showEmpty: true,
+    pagination: true,
+    prefix: 'Admin',
   });
 });
 

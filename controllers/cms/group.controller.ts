@@ -50,6 +50,8 @@ export const getAllGroup = catchAsync(async (req, res) => {
   const aggregate = Group.aggregate();
   const dateField = 'createdAt';
 
+  aggregate.match({ isDeleted: false });
+
   if (name) {
     aggregate.match({ name: { $regex: name, $options: 'i' } });
   }

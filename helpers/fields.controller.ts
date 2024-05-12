@@ -1,6 +1,7 @@
 import categoryFields from '@/models/category/fields';
 import groupFields from '@/models/group/fields';
 import productFields from '@/models/product/fields';
+import subAdminFields from '@/models/user/admin/fields';
 import { adminFields, profileFields, userFields } from '@/models/user/fields';
 
 const fields = {
@@ -10,6 +11,7 @@ const fields = {
   CATEGORY: categoryFields,
   GROUP: groupFields,
   PRODUCT: productFields,
+  ADMIN: subAdminFields,
 
   pagination: {
     limit: true,
